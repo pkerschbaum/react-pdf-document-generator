@@ -1,0 +1,12 @@
+{
+  "name": "document-generator",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "render-web": "yarn workspace @document-generator/renderer-web start",
+    "render-pdf-watch": "yarn workspace @document-generator/renderer-pdf build-pdf-watch",
+    "render-pdf": "yarn workspace @document-generator/renderer-pdf build-pdf"
+  }
+}
