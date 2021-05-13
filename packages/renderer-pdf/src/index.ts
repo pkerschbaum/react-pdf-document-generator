@@ -24,7 +24,7 @@ async function printPDF() {
 async function run() {
   try {
     const pdf = await printPDF();
-    await fs.writeFile(path.join(__dirname, '../', 'out.pdf'), pdf);
+    await fs.writeFile(path.join(__dirname, '..', 'out', 'out.pdf'), pdf);
   } catch (err: unknown) {
     console.error(err);
     throw err;

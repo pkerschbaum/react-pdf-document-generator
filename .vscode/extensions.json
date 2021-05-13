@@ -6,7 +6,8 @@
   "recommendations": [
     "fabiospampinato.vscode-terminals",
     "esbenp.prettier-vscode",
-    "jpoissonnier.vscode-styled-components"
+    "jpoissonnier.vscode-styled-components",
+    "dbaeumer.vscode-eslint"
   ],
   // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
   "unwantedRecommendations": []
