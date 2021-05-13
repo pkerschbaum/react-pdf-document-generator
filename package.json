@@ -5,12 +5,18 @@
     "packages/*"
   ],
   "scripts": {
+    "prepare": "husky install",
     "render-web": "yarn workspace @document-generator/renderer-web start",
     "render-pdf-watch": "yarn workspace @document-generator/renderer-pdf build-pdf-watch",
     "render-pdf": "yarn workspace @document-generator/renderer-pdf build-pdf",
     "format": "yarn run prettier --write packages/."
   },
   "devDependencies": {
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "prettier": "^2.3.0"
+  },
+  "lint-staged": {
+    "packages/**/*": "prettier --write --ignore-unknown"
   }
 }
