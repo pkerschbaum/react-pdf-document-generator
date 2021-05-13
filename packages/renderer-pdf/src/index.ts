@@ -25,10 +25,10 @@ async function run() {
   try {
     const pdf = await printPDF();
     await fs.writeFile(path.join(__dirname, '../', 'out.pdf'), pdf);
-  } catch (err) {
+  } catch (err: unknown) {
     console.error(err);
     throw err;
   }
 }
 
-run();
+void run();

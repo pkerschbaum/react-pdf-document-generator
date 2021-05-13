@@ -18,6 +18,7 @@
   },
   "scripts": {
     "build-pdf": "ts-node --transpile-only ./src/index.ts",
-    "build-pdf-watch": "nodemon"
+    "build-pdf-watch": "nodemon",
+    "lint": "eslint \"src/**/*.{ts,tsx}\""
   }
 }
