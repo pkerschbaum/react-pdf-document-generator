@@ -7,8 +7,8 @@
   "scripts": {
     "prepare": "husky install",
     "render-web": "yarn workspace @document-generator/renderer-web start",
-    "render-pdf-watch": "yarn workspace @document-generator/renderer-pdf build-pdf-watch",
-    "render-pdf": "yarn workspace @document-generator/renderer-pdf build-pdf",
+    "render-pdf": "yarn workspace @document-generator/renderer-pdf build-pdf-watch",
+    "render-pdf-once": "yarn workspace @document-generator/renderer-pdf build-pdf",
     "format": "yarn run prettier --write packages/.",
     "lint": "yarn workspaces run lint"
   },
