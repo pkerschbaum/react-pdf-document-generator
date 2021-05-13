@@ -1,33 +1,33 @@
-import React from "react";
-import moment from "moment";
-import { css, Global } from "@emotion/react";
+import React from 'react';
+import moment from 'moment';
+import { css, Global } from '@emotion/react';
 
-import "moment/locale/de-at";
+import 'moment/locale/de-at';
 
-import { resetCss } from "./css/reset";
-import { globalCss } from "./css/global";
-import { styles } from "./Document.styles";
+import { resetCss } from './css/reset';
+import { globalCss } from './css/global';
+import { styles } from './Document.styles';
 
 const invoiceData = {
   year: 2021,
   nr: 1,
-  location: "invoice-location",
+  location: 'invoice-location',
   date: moment(),
   supplier: {
-    name: "supplier-name",
-    street: "supplier-street",
-    zipCode: "supplier-zipcode",
-    city: "supplier-city",
-    uid: "supplier-uid",
-    iban: "DE00 1111 0000 1111 0000 11",
-    bic: "NTSBDEB1XXX",
+    name: 'supplier-name',
+    street: 'supplier-street',
+    zipCode: 'supplier-zipcode',
+    city: 'supplier-city',
+    uid: 'supplier-uid',
+    iban: 'DE00 1111 0000 1111 0000 11',
+    bic: 'NTSBDEB1XXX',
   },
   recipient: {
-    name: "recipient-name",
-    street: "recipient-street",
-    zipCode: "recipient-zipcode",
-    city: "recipient-city",
-    uid: "recipient-uid",
+    name: 'recipient-name',
+    street: 'recipient-street',
+    zipCode: 'recipient-zipcode',
+    city: 'recipient-city',
+    uid: 'recipient-uid',
   },
   items: [
     {
@@ -103,12 +103,11 @@ export const Document: React.FC = () => {
               font-weight: bold;
             `}
           >
-            Rechnung Nr. {invoiceData.year}-
-            {`${invoiceData.nr}`.padStart(2, "0")}
+            Rechnung Nr. {invoiceData.year}-{`${invoiceData.nr}`.padStart(2, '0')}
           </span>
 
           <span>
-            {invoiceData.location}, am {moment().format("D. MMMM YYYY")}
+            {invoiceData.location}, am {moment().format('D. MMMM YYYY')}
           </span>
         </div>
 
@@ -140,20 +139,18 @@ export const Document: React.FC = () => {
                   <td>{item.description}</td>
                   <td>
                     {formatter.number(item.price, {
-                      format: "currency",
+                      format: 'currency',
                       countOfDecimals: 0,
                     })}
                   </td>
-                  <td>
-                    {formatter.number(item.amount, { countOfDecimals: 2 })}
-                  </td>
+                  <td>{formatter.number(item.amount, { countOfDecimals: 2 })}</td>
                   <td
                     css={css`
                       text-align: right;
                     `}
                   >
                     {formatter.number(item.price * item.amount, {
-                      format: "currency",
+                      format: 'currency',
                     })}
                   </td>
                 </tr>
@@ -182,7 +179,7 @@ export const Document: React.FC = () => {
                     text-align: right;
                   `}
                 >
-                  {formatter.number(nettoSum, { format: "currency" })}
+                  {formatter.number(nettoSum, { format: 'currency' })}
                 </td>
               </tr>
 
@@ -209,7 +206,7 @@ export const Document: React.FC = () => {
                     text-align: right;
                   `}
                 >
-                  {formatter.number(ust, { format: "currency" })}
+                  {formatter.number(ust, { format: 'currency' })}
                 </td>
               </tr>
 
@@ -242,7 +239,7 @@ export const Document: React.FC = () => {
                     text-align: right;
                   `}
                 >
-                  {formatter.number(bruttoSum, { format: "currency" })}
+                  {formatter.number(bruttoSum, { format: 'currency' })}
                 </td>
               </tr>
             </tbody>
@@ -279,8 +276,8 @@ const formatter = {
       countOfDecimals?: number;
       withPositiveSign?: boolean;
       stripNegativeSign?: boolean;
-      format?: "currency" | "percentage_int";
-    }
+      format?: 'currency' | 'percentage_int';
+    },
   ): string | undefined {
     if (num === undefined) {
       return undefined;
@@ -290,11 +287,11 @@ const formatter = {
 
     let countOfDecimals;
     if (options.format !== undefined) {
-      if (options.format === "currency") {
+      if (options.format === 'currency') {
         countOfDecimals = 2;
-      } else if (options.format === "percentage_int") {
+      } else if (options.format === 'percentage_int') {
         countOfDecimals = 0;
-      } else if (options.format === "percentage_float") {
+      } else if (options.format === 'percentage_float') {
         countOfDecimals = 2;
       }
     }
@@ -302,11 +299,11 @@ const formatter = {
       countOfDecimals = options.countOfDecimals;
     }
 
-    const localeString = Math.abs(num).toLocaleString("de-AT", {
+    const localeString = Math.abs(num).toLocaleString('de-AT', {
       minimumFractionDigits: countOfDecimals,
       maximumFractionDigits: countOfDecimals,
-      style: "currency",
-      currency: "EUR",
+      style: 'currency',
+      currency: 'EUR',
     });
     // style 'currency' and currency 'EUR' must be given to "toLocaleString" in order to have
     // a dot (.) as thousands separator (for locale de-AT). But it also adds a € in front of the
@@ -314,22 +311,16 @@ const formatter = {
     result = localeString.substring(2);
 
     if (options.format !== undefined) {
-      if (options.format === "currency") {
-        result = "€ " + result;
-      } else if (
-        options.format === "percentage_int" ||
-        options.format === "percentage_float"
-      ) {
-        result = result + "%";
+      if (options.format === 'currency') {
+        result = '€ ' + result;
+      } else if (options.format === 'percentage_int' || options.format === 'percentage_float') {
+        result = result + '%';
       }
     }
 
     if (options.withPositiveSign !== undefined && options.withPositiveSign) {
       result = num > 0 ? `+ ${result}` : num < 0 ? `– ${result}` : result;
-    } else if (
-      options.stripNegativeSign === undefined ||
-      !options.stripNegativeSign
-    ) {
+    } else if (options.stripNegativeSign === undefined || !options.stripNegativeSign) {
       result = num < 0 ? `– ${result}` : result;
     }
 

@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { css } from '@emotion/react';
 
 // https://codepen.io/chriscoyier/pen/YrbNGP.css
 export const resetCss = css`
@@ -36,9 +36,8 @@ export const resetCss = css`
 
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+      sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -47,7 +46,7 @@ export const resetCss = css`
     background-color: #fff;
   }
 
-  [tabindex="-1"]:focus {
+  [tabindex='-1']:focus {
     outline: none !important;
   }
 
@@ -143,7 +142,7 @@ export const resetCss = css`
   }
 
   a {
-    color: theme-color("primary");
+    color: theme-color('primary');
     text-decoration: none;
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
@@ -197,8 +196,8 @@ export const resetCss = css`
   a,
   area,
   button,
-  [role="button"],
-  input:not([type="range"]),
+  [role='button'],
+  input:not([type='range']),
   label,
   select,
   summary,
@@ -258,30 +257,30 @@ export const resetCss = css`
   }
 
   button,
-  html [type="button"],
-  [type="reset"],
-  [type="submit"] {
+  html [type='button'],
+  [type='reset'],
+  [type='submit'] {
     -webkit-appearance: button;
   }
 
   button::-moz-focus-inner,
-  [type="button"]::-moz-focus-inner,
-  [type="reset"]::-moz-focus-inner,
-  [type="submit"]::-moz-focus-inner {
+  [type='button']::-moz-focus-inner,
+  [type='reset']::-moz-focus-inner,
+  [type='submit']::-moz-focus-inner {
     padding: 0;
     border-style: none;
   }
 
-  input[type="radio"],
-  input[type="checkbox"] {
+  input[type='radio'],
+  input[type='checkbox'] {
     box-sizing: border-box;
     padding: 0;
   }
 
-  input[type="date"],
-  input[type="time"],
-  input[type="datetime-local"],
-  input[type="month"] {
+  input[type='date'],
+  input[type='time'],
+  input[type='datetime-local'],
+  input[type='month'] {
     -webkit-appearance: listbox;
   }
 
@@ -313,18 +312,18 @@ export const resetCss = css`
     vertical-align: baseline;
   }
 
-  [type="number"]::-webkit-inner-spin-button,
-  [type="number"]::-webkit-outer-spin-button {
+  [type='number']::-webkit-inner-spin-button,
+  [type='number']::-webkit-outer-spin-button {
     height: auto;
   }
 
-  [type="search"] {
+  [type='search'] {
     outline-offset: -2px;
     -webkit-appearance: none;
   }
 
-  [type="search"]::-webkit-search-cancel-button,
-  [type="search"]::-webkit-search-decoration {
+  [type='search']::-webkit-search-cancel-button,
+  [type='search']::-webkit-search-decoration {
     -webkit-appearance: none;
   }
 

@@ -1,0 +1,23 @@
+{
+  "autorun": true,
+  "terminals": [
+    {
+      "name": "bash",
+      "cwd": "[cwd]",
+      "execute": false,
+      "command": "yarn"
+    },
+    {
+      "name": "render-web",
+      "cwd": "[cwd]",
+      "execute": false,
+      "command": "yarn run render-web"
+    },
+    {
+      "name": "render-pdf-watch",
+      "cwd": "[cwd]",
+      "execute": false,
+      "command": "yarn run render-pdf-watch"
+    }
+  ]
+}
