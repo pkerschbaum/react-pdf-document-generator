@@ -1,14 +1,6 @@
 import { css } from '@emotion/react';
 
 export const globalCss = css`
-  * {
-    margin: 0;
-    padding: 0;
-    font-family: Arial;
-    font-size: 16px;
-    white-space: pre;
-  }
-
   td,
   th {
     border: 1px solid black;
@@ -19,10 +11,6 @@ export const globalCss = css`
   }
 
   hr {
-    border: 1px solid black;
-  }
-
-  @page {
-    size: A4;
+    border-top: 1px solid black;
   }
 `;

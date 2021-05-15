@@ -2,10 +2,11 @@ import { css } from '@emotion/react';
 
 export const styles = {
   root: css`
-    padding-top: 46px;
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-bottom: 46px;
+    font-family: Arial;
+    font-size: 16px;
+
+    /* typical A4 padding */
+    padding: 27mm 16mm 27mm 16mm;
 
     display: flex;
     flex-direction: column;
@@ -24,6 +25,7 @@ export const styles = {
   `,
 
   divider: css`
+    width: 100%;
     margin-top: 8px;
     margin-bottom: 8px;
   `,
