@@ -34,6 +34,10 @@ export const styles = {
     margin-top: 16px;
   `,
 
+  spacingSm: css`
+    margin-top: 32px;
+  `,
+
   spacingMd: css`
     margin-top: 64px;
   `,

@@ -9,6 +9,9 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
   ],
+  rules: {
+    'react/prop-types': 'off',
+  },
   plugins: ['jsx-a11y'],
   env: {
     'shared-node-browser': true,

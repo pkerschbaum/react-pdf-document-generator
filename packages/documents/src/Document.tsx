@@ -1,8 +1,6 @@
 import React from 'react';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { css, Global } from '@emotion/react';
-
-import 'moment/locale/de-at';
 
 import { resetCss } from './css/reset';
 import { globalCss } from './css/global';
@@ -12,7 +10,7 @@ const invoiceData = {
   year: 2021,
   nr: 1,
   location: 'invoice-location',
-  date: moment(),
+  date: dayjs(),
   supplier: {
     name: 'supplier-name',
     street: 'supplier-street',
@@ -76,7 +74,7 @@ export const Document: React.FC = () => {
 
         <hr css={styles.divider} />
 
-        <div css={styles.spacingMd}>
+        <div css={styles.spacingSm}>
           <span>{invoiceData.recipient.name}</span>
           <br />
           <span>{invoiceData.recipient.street}</span>
@@ -91,7 +89,7 @@ export const Document: React.FC = () => {
 
         <div
           css={[
-            styles.spacingMd,
+            styles.spacingSm,
             css`
               display: flex;
               justify-content: space-between;
@@ -107,7 +105,7 @@ export const Document: React.FC = () => {
           </span>
 
           <span>
-            {invoiceData.location}, am {moment().format('D. MMMM YYYY')}
+            {invoiceData.location}, am {dayjs().format('D. MMMM YYYY')}
           </span>
         </div>
 
@@ -254,7 +252,7 @@ export const Document: React.FC = () => {
             <br />
           </div>
 
-          <div css={styles.spacingMd}>
+          <div css={styles.spacingSm}>
             <span>Mit freundlichen Grüßen,</span>
           </div>
 
