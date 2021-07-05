@@ -10,7 +10,8 @@
     "render-pdf": "yarn workspace @document-generator/renderer-pdf build-pdf-watch",
     "render-pdf-once": "yarn workspace @document-generator/renderer-pdf build-pdf",
     "format": "yarn run prettier --write packages/.",
-    "lint": "yarn workspaces run lint"
+    "lint": "yarn workspaces run lint",
+    "rimraf-node-modules": "rimraf ./*/node_modules && rimraf node_modules"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.23.0",
@@ -19,7 +20,13 @@
     "eslint-config-prettier": "^8.3.0",
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.0",
+    "rimraf": "^3.0.2"
+  },
+  "engines": {
+    "node": "^16.3.0",
+    "npm": "^7.15.1",
+    "yarn": "^1.22.10"
   },
   "lint-staged": {
     "packages/**/*.{ts,tsx}": [
