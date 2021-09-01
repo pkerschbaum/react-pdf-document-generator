@@ -7,7 +7,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'prettier',
   ],
-  root: true,
+  ignorePatterns: ['.eslintrc.js', 'eslint-template.js', 'config-overrides.js'],
   rules: {
     'no-extra-boolean-cast': 'off',
     'no-inner-declarations': 'off',
