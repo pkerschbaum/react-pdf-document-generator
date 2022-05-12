@@ -3,12 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "nuke": "pnpm run nuke:node-modules",
+    "nuke:node-modules": "rimraf node_modules",
+    "lint": "eslint --max-warnings 0 .",
+    "lint:fix": "eslint --fix --max-warnings 0 .",
     "build-pdf": "ts-node --transpile-only ./src/index.ts",
-    "build-pdf-watch": "nodemon --watch \"..\" --ext \"ts,tsx,css,json\" --exec \"yarn run build-pdf\"",
-    "lint": "eslint ."
+    "build-pdf-watch": "nodemon --watch \"..\" --ext \"ts,tsx,css,json\" --exec \"pnpm run build-pdf\""
   },
   "dependencies": {
-    "@document-generator/documents": "^0.0.1",
+    "@document-generator/documents": "workspace:0.0.1",
     "@emotion/react": "^11.1.5",
     "@types/node": "^16.7.10",
     "@types/react": "^17.0.19",

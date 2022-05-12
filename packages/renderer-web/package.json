@@ -3,11 +3,16 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "react-app-rewired start",
-    "lint": "eslint ."
+    "nuke": "pnpm run nuke:build && pnpm run nuke:node-modules",
+    "nuke:build": "rimraf build",
+    "nuke:node-modules": "rimraf node_modules",
+    "start": "cross-env SKIP_PREFLIGHT_CHECK=true DISABLE_ESLINT_PLUGIN=true react-app-rewired start",
+    "build": "cross-env SKIP_PREFLIGHT_CHECK=true DISABLE_ESLINT_PLUGIN=true react-app-rewired build",
+    "lint": "eslint --max-warnings 0 .",
+    "lint:fix": "eslint --fix --max-warnings 0 ."
   },
   "dependencies": {
-    "@document-generator/documents": "^0.0.1",
+    "@document-generator/documents": "workspace:0.0.1",
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@emotion/react": "^11.1.5",
     "@types/react": "^17.0.19",
@@ -22,6 +27,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.30.0",
     "@typescript-eslint/parser": "^4.30.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",

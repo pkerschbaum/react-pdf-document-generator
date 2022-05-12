@@ -3,19 +3,17 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
   "scripts": {
     "prepare": "husky install",
-    "render-web": "yarn workspace @document-generator/renderer-web start",
-    "render-pdf": "yarn workspace @document-generator/renderer-pdf build-pdf-watch",
-    "render-pdf-once": "yarn workspace @document-generator/renderer-pdf build-pdf",
-    "format": "yarn run prettier --write ./**/*",
-    "lint": "yarn workspaces run lint",
-    "nuke": "yarn workspaces run rimraf node_modules && rimraf ./node_modules"
+    "mr:nuke": "pnpm run mr:nuke:build && pnpm run mr:nuke:node-modules",
+    "mr:nuke:build": "pnpm run --parallel nuke:build",
+    "mr:nuke:node-modules": "pnpm run --parallel nuke:node-modules && rimraf node_modules",
+    "mr:lint": "pnpm run --parallel lint",
+    "mr:lint:fix": "pnpm run --parallel lint -- --fix",
+    "mr:format": "prettier --write --ignore-unknown .",
+    "render-web": "pnpm run --filter \"@document-generator/renderer-web\" start",
+    "render-pdf": "pnpm run --filter \"@document-generator/renderer-pdf\" build-pdf-watch",
+    "render-pdf-once": "pnpm run --filter \"@document-generator/renderer-pdf\" build-pdf"
   },
   "devDependencies": {
     "husky": "^6.0.0",
@@ -26,14 +24,6 @@
   "engines": {
     "node": "^16.14.0",
     "npm": "^8.3.1",
-    "yarn": "^1.22.10"
-  },
-  "lint-staged": {
-    "packages/**/*.{ts,tsx}": [
-      "eslint"
-    ],
-    "**/*": [
-      "prettier --write --ignore-unknown"
-    ]
+    "pnpm": "^6.32.3"
   }
 }

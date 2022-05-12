@@ -1,12 +1,9 @@
-const baseEslintConfig = require('../../eslint-template');
+const baseEslintConfig = require('../eslint-template');
 
 module.exports = {
   ...baseEslintConfig,
-  root: true,
   parserOptions: {
     ...baseEslintConfig.parserOptions,
-    project: './tsconfig.json',
-    sourceType: 'module',
     tsconfigRootDir: __dirname,
   },
   plugins: [...(baseEslintConfig.plugins ?? []), 'jsx-a11y'],
@@ -16,6 +13,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
   ],
+  ignorePatterns: [...(baseEslintConfig.ignorePatterns ?? []), 'config-overrides.js'],
   rules: {
     ...baseEslintConfig.rules,
     'react/prop-types': 'off',
