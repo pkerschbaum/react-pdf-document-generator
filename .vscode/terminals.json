@@ -5,19 +5,19 @@
       "name": "bash",
       "cwd": "[cwd]",
       "execute": false,
-      "command": "yarn"
+      "command": "pnpm"
     },
     {
       "name": "render-web",
       "cwd": "[cwd]",
       "execute": false,
-      "command": "yarn run render-web"
+      "command": "pnpm run render-web"
     },
     {
       "name": "render-pdf",
       "cwd": "[cwd]",
       "execute": false,
-      "command": "yarn run render-pdf"
+      "command": "pnpm run render-pdf"
     }
   ]
 }
