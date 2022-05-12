@@ -13,7 +13,7 @@ async function printPDF() {
   const html = ReactDOMServer.renderToStaticMarkup(React.createElement(Document));
   await page.setContent(html);
 
-  const pdf = await page.pdf();
+  const pdf = await page.pdf({ format: 'a4' });
 
   await page.close();
   await browser.close();
