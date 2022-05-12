@@ -5,6 +5,16 @@ module.exports = {
     project: './tsconfig.json',
     sourceType: 'module',
   },
+  plugins: [
+    /**
+     * add "only-warn" plugin to change all errors to warnings.
+     * ESLint is executed via Git hooks with --max-warnings 0 anyways. Transforming all errors to warnings
+     * allows to distinguish ESLint warnings from other errors (e.g. TypeScript compile errors) in the
+     * code editor (e.g. VS Code).
+     */
+    'only-warn',
+    '@typescript-eslint/eslint-plugin',
+  ],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
@@ -12,12 +22,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'prettier',
   ],
-  ignorePatterns: [
-    '.eslintrc.js',
-    'eslint-template.js',
-    'lint-staged.config.js',
-    'config-overrides.js',
-  ],
+  ignorePatterns: ['.eslintrc.js', 'eslint-template.js', 'lint-staged.config.js'],
   rules: {
     'no-extra-boolean-cast': 'off',
     'no-inner-declarations': 'off',

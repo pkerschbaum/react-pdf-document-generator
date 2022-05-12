@@ -24,6 +24,7 @@ importers:
       eslint: ^7.32.0
       eslint-config-prettier: ^8.3.0
       eslint-plugin-jsx-a11y: ^6.4.1
+      eslint-plugin-only-warn: ^1.0.3
       eslint-plugin-react: ^7.25.1
       eslint-plugin-react-hooks: ^4.2.0
       react: ^17.0.2
@@ -38,6 +39,7 @@ importers:
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
       eslint-plugin-jsx-a11y: 6.5.1_eslint@7.32.0
+      eslint-plugin-only-warn: 1.0.3
       eslint-plugin-react: 7.29.4_eslint@7.32.0
       eslint-plugin-react-hooks: 4.5.0_eslint@7.32.0
       react: 17.0.2
@@ -45,7 +47,7 @@ importers:
 
   packages/renderer-pdf:
     specifiers:
-      '@document-generator/documents': workspace:0.0.1
+      '@document-generator/documents': workspace:1.0.0
       '@emotion/react': ^11.1.5
       '@types/node': ^16.7.10
       '@types/react': ^17.0.19
@@ -55,6 +57,7 @@ importers:
       dayjs: ^1.10.4
       eslint: ^7.32.0
       eslint-config-prettier: ^8.3.0
+      eslint-plugin-only-warn: ^1.0.3
       nodemon: ^2.0.7
       puppeteer: ^9.1.0
       react: ^17.0.2
@@ -77,12 +80,13 @@ importers:
       '@typescript-eslint/parser': 4.33.0_eslint@7.32.0+typescript@4.6.4
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
+      eslint-plugin-only-warn: 1.0.3
       ts-node: 10.7.0_4d0aa78b86ab9310350b2bc6735ef8a2
       typescript: 4.6.4
 
   packages/renderer-web:
     specifiers:
-      '@document-generator/documents': workspace:0.0.1
+      '@document-generator/documents': workspace:1.0.0
       '@emotion/babel-preset-css-prop': ^11.2.0
       '@emotion/react': ^11.1.5
       '@types/react': ^17.0.19
@@ -95,6 +99,7 @@ importers:
       eslint: ^7.32.0
       eslint-config-prettier: ^8.3.0
       eslint-plugin-jsx-a11y: ^6.4.1
+      eslint-plugin-only-warn: ^1.0.3
       eslint-plugin-react: ^7.25.1
       eslint-plugin-react-hooks: ^4.2.0
       react: ^17.0.2
@@ -121,6 +126,7 @@ importers:
       eslint: 7.32.0
       eslint-config-prettier: 8.5.0_eslint@7.32.0
       eslint-plugin-jsx-a11y: 6.5.1_eslint@7.32.0
+      eslint-plugin-only-warn: 1.0.3
       eslint-plugin-react: 7.29.4_eslint@7.32.0
       eslint-plugin-react-hooks: 4.5.0_eslint@7.32.0
       typescript: 4.6.4
@@ -6205,6 +6211,11 @@ packages:
       jsx-ast-utils: 3.3.0
       language-tags: 1.0.5
       minimatch: 3.0.4
+
+  /eslint-plugin-only-warn/1.0.3:
+    resolution: {integrity: sha512-XQOX/TfLoLw6h8ky51d29uUjXRTQHqBGXPylDEmy5fe/w7LIOnp8MA24b1OSMEn9BQoKow1q3g1kLe5/9uBTvw==}
+    engines: {node: '>=6'}
+    dev: true
 
   /eslint-plugin-react-hooks/4.5.0_eslint@7.32.0:
     resolution: {integrity: sha512-8k1gRt7D7h03kd+SAAlzXkQwWK22BnK6GKZG+FJA6BAGy22CFvl8kCIXKpVux0cCxMWDQUPqSok0LKaZ0aOcCw==}

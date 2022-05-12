@@ -1,6 +1,6 @@
 {
   "name": "@document-generator/renderer-pdf",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "nuke": "pnpm run nuke:node-modules",
@@ -11,7 +11,7 @@
     "build-pdf-watch": "nodemon --watch \"..\" --ext \"ts,tsx,css,json\" --exec \"pnpm run build-pdf\""
   },
   "dependencies": {
-    "@document-generator/documents": "workspace:0.0.1",
+    "@document-generator/documents": "workspace:1.0.0",
     "@emotion/react": "^11.1.5",
     "@types/node": "^16.7.10",
     "@types/react": "^17.0.19",
@@ -27,6 +27,7 @@
     "@typescript-eslint/parser": "^4.30.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-only-warn": "^1.0.3",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.2"
   }
