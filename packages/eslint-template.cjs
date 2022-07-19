@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.json',
+    project: './tsconfig.project.json',
     sourceType: 'module',
   },
   plugins: [
@@ -22,7 +22,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'prettier',
   ],
-  ignorePatterns: ['.eslintrc.js', 'eslint-template.js', 'lint-staged.config.js'],
+  ignorePatterns: ['.eslintrc.cjs', 'eslint-template.cjs', 'lint-staged.config.cjs'],
   rules: {
     'no-extra-boolean-cast': 'off',
     'no-inner-declarations': 'off',

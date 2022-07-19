@@ -2,22 +2,10 @@
   "autorun": true,
   "terminals": [
     {
-      "name": "bash",
+      "name": "mr:dev:watch",
       "cwd": "[cwd]",
       "execute": false,
-      "command": "pnpm"
-    },
-    {
-      "name": "render-web",
-      "cwd": "[cwd]",
-      "execute": false,
-      "command": "pnpm run render-web"
-    },
-    {
-      "name": "render-pdf",
-      "cwd": "[cwd]",
-      "execute": false,
-      "command": "pnpm run render-pdf"
+      "command": "pnpm run mr:dev:watch"
     }
   ]
 }

@@ -1,29 +1,25 @@
 {
   "name": "document-generator",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "prepare": "husky install",
     "mr:nuke": "pnpm run mr:nuke:build && pnpm run mr:nuke:node-modules",
-    "mr:nuke:build": "pnpm run --parallel nuke:build",
-    "mr:nuke:node-modules": "pnpm run --parallel nuke:node-modules && rimraf node_modules",
-    "mr:lint": "pnpm run --parallel lint",
-    "mr:lint:fix": "pnpm run --parallel lint -- --fix",
+    "mr:nuke:build": "pnpm --parallel run nuke:build",
+    "mr:nuke:node-modules": "pnpm --parallel exec rimraf node_modules && rimraf node_modules",
+    "mr:lint": "pnpm --parallel run lint:package",
+    "mr:lint:fix": "pnpm --parallel run lint:package:fix",
     "mr:format": "prettier --write --ignore-unknown .",
-    "render-web": "pnpm run --filter \"@document-generator/renderer-web\" start",
-    "render-pdf": "pnpm run --filter \"@document-generator/renderer-pdf\" build-pdf-watch",
-    "render-pdf-once": "pnpm run --filter \"@document-generator/renderer-pdf\" build-pdf"
+    "mr:build": "pnpm --recursive run build",
+    "mr:dev:watch": "pnpm --parallel run dev:watch"
   },
   "devDependencies": {
-    "husky": "^6.0.0",
-    "lint-staged": "^11.0.0",
-    "prettier": "^2.3.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
     "rimraf": "^3.0.2"
   },
   "engines": {
     "node": "^16.14.0",
-    "npm": "^8.3.1",
-    "pnpm": "^6.32.3"
+    "pnpm": "^7.1.2"
   }
 }

@@ -1,10 +1,10 @@
-import React from 'react';
+import type React from 'react';
 import dayjs from 'dayjs';
 import { css, Global } from '@emotion/react';
 
-import { resetCss } from './css/reset';
-import { globalCss } from './css/global';
-import { styles } from './Document.styles';
+import { resetCss } from '#/css/reset';
+import { globalCss } from '#/css/global';
+import { styles } from '#/Document.styles';
 
 const invoiceData = {
   year: 2021,

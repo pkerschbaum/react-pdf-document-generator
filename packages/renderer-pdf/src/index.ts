@@ -4,7 +4,7 @@ import path from 'path';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-import { Document } from '@document-generator/documents/src/Document';
+import { Document } from '@document-generator/documents/Document';
 
 async function printPDF() {
   const browser = await puppeteer.launch({ headless: true });

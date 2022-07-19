@@ -1,4 +1,4 @@
-const baseEslintConfig = require('../eslint-template');
+const baseEslintConfig = require('../eslint-template.cjs');
 
 module.exports = {
   ...baseEslintConfig,
@@ -17,6 +17,7 @@ module.exports = {
   rules: {
     ...baseEslintConfig.rules,
     'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
   },
   env: {
     ...baseEslintConfig.env,

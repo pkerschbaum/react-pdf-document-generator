@@ -3,32 +3,37 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "nuke": "pnpm run nuke:node-modules",
-    "nuke:node-modules": "rimraf node_modules",
-    "lint": "eslint --max-warnings 0 .",
-    "lint:fix": "eslint --fix --max-warnings 0 .",
-    "build-pdf": "ts-node --transpile-only ./src/index.ts",
-    "build-pdf-watch": "nodemon --watch \"..\" --ext \"ts,tsx,css,json\" --exec \"pnpm run build-pdf\""
+    "postinstall": "ts-patch install -s",
+    "nuke": "pnpm run nuke:build",
+    "nuke:build": "rimraf dist *.tsbuildinfo",
+    "build": "pnpm run build:compile && pnpm run build:pdf",
+    "build:compile": "tsc -p ./tsconfig.project.json",
+    "build:pdf": "node ./dist/index.js",
+    "lint": "eslint --max-warnings 0",
+    "lint:package": "pnpm run lint .",
+    "lint:package:fix": "pnpm run lint:package --fix",
+    "dev:watch": "nodemon --watch \"./src\" --watch \"../documents/dist\" --ext \"ts,tsx,css,json\" --exec \"pnpm run build\""
   },
   "dependencies": {
     "@document-generator/documents": "workspace:1.0.0",
-    "@emotion/react": "^11.1.5",
+    "@emotion/react": "^11.9.3",
     "@types/node": "^16.7.10",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
     "dayjs": "^1.10.4",
-    "nodemon": "^2.0.7",
     "puppeteer": "^9.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.30.0",
-    "@typescript-eslint/parser": "^4.30.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.7",
+    "@typescript-eslint/parser": "^5.30.7",
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-only-warn": "^1.0.3",
-    "ts-node": "^10.2.1",
-    "typescript": "^4.4.2"
+    "nodemon": "^2.0.19",
+    "ts-patch": "^2.0.1",
+    "typescript": "^4.7.4",
+    "typescript-transform-paths": "^3.3.1"
   }
 }
