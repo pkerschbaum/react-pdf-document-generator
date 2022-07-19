@@ -1,0 +1,13 @@
+{
+  "references": [
+    {
+      "path": "./documents/tsconfig.project.json"
+    },
+    {
+      "path": "./renderer-pdf/tsconfig.project.json"
+    },
+    {
+      "path": "./renderer-web/tsconfig.project.json"
+    }
+  ]
+}

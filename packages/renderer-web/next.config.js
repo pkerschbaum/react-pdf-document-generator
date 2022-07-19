@@ -9,7 +9,7 @@ const nextConfig = {
   },
 
   typescript: {
-    tsconfigPath: './tsconfig.json',
+    tsconfigPath: './tsconfig.project.json',
     ignoreBuildErrors: true,
   },
 };

@@ -7,7 +7,7 @@
     "nuke": "pnpm run nuke:build",
     "nuke:build": "rimraf dist *.tsbuildinfo",
     "build": "pnpm run build:compile && pnpm run build:pdf",
-    "build:compile": "tsc -p ./tsconfig.json",
+    "build:compile": "tsc -p ./tsconfig.project.json",
     "build:pdf": "node ./dist/index.js",
     "lint": "eslint --max-warnings 0",
     "lint:package": "pnpm run lint .",
