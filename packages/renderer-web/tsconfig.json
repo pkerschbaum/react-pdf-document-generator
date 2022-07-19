@@ -1,49 +1,44 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
-    "jsx": "react-jsx",
+    /* Language and Environment */
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
+
+    /* Modules */
     "module": "esnext",
-    "rootDir": "./src",
-    "types": [],
-    "declaration": true,
-    "declarationMap": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "#/*": ["./src/*"]
+    },
+
+    /* JavaScript Support */
+    "allowJs": true,
+
+    /* Emit */
+    "noEmit": true,
     "importsNotUsedAsValues": "error",
-    "outDir": "./dist",
-    "sourceMap": true,
+
+    /* Interop Constraints */
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
+
+    /* Type Checking */
+    "strict": true,
     "allowUnreachableCode": false,
     "noFallthroughCasesInSwitch": true,
-    "strict": true,
+
+    /* Projects */
     "composite": true,
     "incremental": true,
-    "skipLibCheck": true,
-    "plugins": [
-      {
-        "transform": "typescript-transform-paths"
-      },
-      {
-        "transform": "typescript-transform-paths",
-        "afterDeclarations": true
-      }
-    ],
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noEmit": true
+
+    /* Completeness */
+    "skipLibCheck": true
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "**/node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

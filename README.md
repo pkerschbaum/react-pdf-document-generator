@@ -32,7 +32,27 @@ pnpm i
 
 ## How to run
 
-1. `pnpm run render-web`: Starts a minimal web app that renders the document in the browser. The web app will automatically refresh on every change, giving a tight feedback loop while editing the document.
-2. `pnpm run render-pdf`: This will generate [./packages/renderer-pdf/out/out.pdf](./packages/renderer-pdf/out/out.pdf).
+1. **Run an initial build:**
+
+   ```sh
+   pnpm run mr:build
+   ```
+
+   > **Note:** This command will also run Puppeteer.  
+   > If you have some errors with Puppeteer, like "error while loading shared libraries: libatk-1.0.so.0", make sure you have installed all dependencies on your system necessary to run Puppeteer/Chrome.  
+   > One way to get all dependencies is to just install Chrome. For Ubuntu, execute this command in a temporary directory:  
+   > `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install ./google-chrome-stable_current_amd64.deb`  
+   > See also this link for more information: <https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md>.
+
+1. **Start watchers:**
+
+   ```sh
+   pnpm run mr:dev:watch
+   ```
+
+   This starts
+
+   - a minimal web app that renders the document in the browser. The web app will automatically refresh on every change, giving a tight feedback loop while editing the document.
+   - a watcher which will regenerate [./packages/renderer-pdf/out/out.pdf](./packages/renderer-pdf/out/out.pdf) on file changes.
 
 The document which is rendered is located here: [./packages/documents/src/Document.tsx](./packages/documents/src/Document.tsx).

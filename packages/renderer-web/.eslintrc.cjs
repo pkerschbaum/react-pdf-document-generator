@@ -17,6 +17,7 @@ module.exports = {
   rules: {
     ...baseEslintConfig.rules,
     'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
   },
   env: {
     ...baseEslintConfig.env,
