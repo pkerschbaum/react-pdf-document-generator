@@ -8,13 +8,13 @@
       "command": "pnpm"
     },
     {
-      "name": "render-web",
+      "name": "renderer-web",
       "cwd": "[cwd]",
       "execute": false,
       "command": "pnpm run render-web"
     },
     {
-      "name": "render-pdf",
+      "name": "renderer-pdf",
       "cwd": "[cwd]",
       "execute": false,
       "command": "pnpm run render-pdf"

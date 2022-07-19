@@ -10,6 +10,7 @@ Many people have used tools like [Jasper Reports](https://community.jaspersoft.c
 ## Prerequisites
 
 - Follow the "Prerequisites" installation guide of [microsoft/vscode/wiki/How-to-Contribute#prerequisites](https://github.com/microsoft/vscode/wiki/How-to-Contribute#prerequisites).
+  - You can skip the installation of `yarn`, it is not needed for this repository.
   - For the NodeJS version to use, please refer to the file [.nvmrc](./.nvmrc) of this project. This is the version of NodeJS the project should be developed with.  
     It is recommended to use [nvm](https://github.com/nvm-sh/nvm) and run `nvm use`, this will automatically switch to the NodeJS version mentioned in `.nvmrc`.
 - This monorepo uses [`pnpm`](https://pnpm.io/) as package manager.  

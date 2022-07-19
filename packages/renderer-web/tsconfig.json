@@ -1,11 +1,49 @@
 {
-  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "target": "ES2018",
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
     "module": "esnext",
-    "allowJs": true,
+    "rootDir": "./src",
+    "types": [],
+    "declaration": true,
+    "declarationMap": true,
+    "importsNotUsedAsValues": "error",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "allowUnreachableCode": false,
+    "noFallthroughCasesInSwitch": true,
+    "strict": true,
+    "composite": true,
+    "incremental": true,
     "skipLibCheck": true,
-    "noEmit": true,
-    "isolatedModules": true
+    "plugins": [
+      {
+        "transform": "typescript-transform-paths"
+      },
+      {
+        "transform": "typescript-transform-paths",
+        "afterDeclarations": true
+      }
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noEmit": true
   },
-  "include": ["src"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "**/node_modules"
+  ]
 }

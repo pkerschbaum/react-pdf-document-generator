@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Document } from '@document-generator/documents/src/Document';
+import { Document } from '@document-generator/documents/Document';
 import { styles } from './index.styles';
 
 ReactDOM.render(

@@ -1,8 +1,4 @@
 {
   "editor.rulers": [100],
-  "eslint.workingDirectories": [
-    {
-      "mode": "auto"
-    }
-  ]
+  "typescript.tsdk": "./packages/documents/node_modules/typescript/lib"
 }
