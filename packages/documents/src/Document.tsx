@@ -2,7 +2,6 @@ import type React from 'react';
 import dayjs from 'dayjs';
 
 import styled from 'styled-components';
-import { CSSReset } from '#/css/reset';
 import { GlobalAppStyles } from '#/css/global';
 
 const invoiceData = {
@@ -45,13 +44,6 @@ const invoiceData = {
 };
 
 const Root = styled.div`
-  --spacing-xs: 16px;
-  --spacing-sm: 32px;
-  --spacing-md: 64px;
-
-  font-family: Arial;
-  font-size: 16px;
-
   /* typical A4 padding */
   padding: 27mm 16mm 27mm 16mm;
 
@@ -102,7 +94,7 @@ const InvoiceRecordsTable = styled.table`
 const InvoiceRecordsRow = styled.tr``;
 const InvoiceRecordsSubtotalsRow = styled(InvoiceRecordsRow)``;
 const InvoiceRecordsTotalsRow = styled(InvoiceRecordsRow)``;
-const InvoiceRecordsTd = styled.th`
+const InvoiceRecordsTd = styled.td`
   ${InvoiceRecordsRow} > &:last-of-type {
     text-align: right;
   }
@@ -156,7 +148,6 @@ export const Document: React.FC = () => {
 
   return (
     <>
-      <CSSReset />
       <GlobalAppStyles />
 
       <Root>

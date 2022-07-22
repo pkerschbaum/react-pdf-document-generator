@@ -57,11 +57,7 @@ importers:
 
   packages/renderer-pdf:
     specifiers:
-      '@document-generator/documents': workspace:1.0.0
       '@types/node': ^16.7.10
-      '@types/react': ^18.0.15
-      '@types/react-dom': ^18.0.6
-      '@types/styled-components': ^5.1.25
       '@typescript-eslint/eslint-plugin': ^5.30.7
       '@typescript-eslint/parser': ^5.30.7
       dayjs: ^1.10.4
@@ -69,27 +65,15 @@ importers:
       eslint-config-prettier: ^8.5.0
       eslint-plugin-only-warn: ^1.0.3
       nodemon: ^2.0.19
-      puppeteer: ^9.1.0
-      react: ^18.2.0
-      react-dom: ^18.2.0
-      react-is: ^18.2.0
-      styled-components: ^5.3.5
+      puppeteer: ^15.5.0
       ts-patch: ^2.0.1
       typescript: ^4.7.4
       typescript-transform-paths: ^3.3.1
     dependencies:
-      '@document-generator/documents': link:../documents
       '@types/node': 16.11.45
-      '@types/react': 18.0.15
-      '@types/react-dom': 18.0.6
       dayjs: 1.11.4
-      puppeteer: 9.1.1
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      react-is: 18.2.0
-      styled-components: 5.3.5_7i5myeigehqah43i5u7wbekgba
+      puppeteer: 15.5.0
     devDependencies:
-      '@types/styled-components': 5.1.25
       '@typescript-eslint/eslint-plugin': 5.30.7_6wltbjakwuqm7awqswigmiuhd4
       '@typescript-eslint/parser': 5.30.7_he2ccbldppg44uulnyq4rwocfa
       eslint: 8.20.0
@@ -980,6 +964,14 @@ packages:
     requiresBuild: true
     dev: true
 
+  /cross-fetch/3.1.5:
+    resolution: {integrity: sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==}
+    dependencies:
+      node-fetch: 2.6.7
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
@@ -1058,8 +1050,8 @@ packages:
       object-keys: 1.1.1
     dev: true
 
-  /devtools-protocol/0.0.869402:
-    resolution: {integrity: sha512-VvlVYY+VDJe639yHs5PHISzdWTLL3Aw8rO4cvUtwvoxFd6FHbE4OpHHcde52M6096uYYazAmd4l0o5VuFRO2WA==}
+  /devtools-protocol/0.0.1019158:
+    resolution: {integrity: sha512-wvq+KscQ7/6spEV7czhnZc9RM/woz1AY+/Vpd8/h2HFMwJSdTliu7f/yr1A6vDdJfKICZsShqsYpEQbdhg8AFQ==}
     dev: false
 
   /dir-glob/3.0.1:
@@ -2322,24 +2314,23 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /puppeteer/9.1.1:
-    resolution: {integrity: sha512-W+nOulP2tYd/ZG99WuZC/I5ljjQQ7EUw/jQGcIb9eu8mDlZxNY2SgcJXTLG9h5gRvqA3uJOe4hZXYsd3EqioMw==}
-    engines: {node: '>=10.18.1'}
-    deprecated: Version no longer supported. Upgrade to @latest
+  /puppeteer/15.5.0:
+    resolution: {integrity: sha512-+vZPU8iBSdCx1Kn5hHas80fyo0TiVyMeqLGv/1dygX2HKhAZjO9YThadbRTCoTYq0yWw+w/CysldPsEekDtjDQ==}
+    engines: {node: '>=14.1.0'}
     requiresBuild: true
     dependencies:
+      cross-fetch: 3.1.5
       debug: 4.3.4
-      devtools-protocol: 0.0.869402
+      devtools-protocol: 0.0.1019158
       extract-zip: 2.0.1
       https-proxy-agent: 5.0.1
-      node-fetch: 2.6.7
       pkg-dir: 4.2.0
       progress: 2.0.3
       proxy-from-env: 1.1.0
       rimraf: 3.0.2
       tar-fs: 2.1.1
       unbzip2-stream: 1.4.3
-      ws: 7.5.9
+      ws: 8.8.0
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -2940,9 +2931,9 @@ packages:
   /wrappy/1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
-  /ws/7.5.9:
-    resolution: {integrity: sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==}
-    engines: {node: '>=8.3.0'}
+  /ws/8.8.0:
+    resolution: {integrity: sha512-JDAgSYQ1ksuwqfChJusw1LSJ8BizJ2e/vVu5Lxjq3YvNJNlROv1ui4i+c/kUUrPheBvQl4c5UbERhTwKa6QBJQ==}
+    engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
       utf-8-validate: ^5.0.2

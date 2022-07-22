@@ -11,23 +11,14 @@
     "build:pdf": "node ./dist/index.js",
     "lint": "eslint --max-warnings 0",
     "lint:package": "pnpm run lint .",
-    "lint:package:fix": "pnpm run lint:package --fix",
-    "dev:watch": "nodemon --watch \"./src\" --watch \"../documents/dist\" --ext \"ts,tsx,css,json\" --exec \"pnpm run build\""
+    "lint:package:fix": "pnpm run lint:package --fix"
   },
   "dependencies": {
-    "@document-generator/documents": "workspace:1.0.0",
     "@types/node": "^16.7.10",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
     "dayjs": "^1.10.4",
-    "puppeteer": "^9.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-is": "^18.2.0",
-    "styled-components": "^5.3.5"
+    "puppeteer": "^15.5.0"
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "eslint": "^8.20.0",
