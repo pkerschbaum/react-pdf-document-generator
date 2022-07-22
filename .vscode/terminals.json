@@ -2,10 +2,16 @@
   "autorun": true,
   "terminals": [
     {
-      "name": "mr:dev:watch",
+      "name": "watch-web",
       "cwd": "[cwd]",
       "execute": false,
-      "command": "pnpm run mr:dev:watch"
+      "command": "pnpm run watch-web"
+    },
+    {
+      "name": "build-pdf",
+      "cwd": "[cwd]",
+      "execute": false,
+      "command": "pnpm run build-pdf"
     }
   ]
 }

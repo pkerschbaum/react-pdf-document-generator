@@ -9,8 +9,8 @@
     "mr:lint": "pnpm --parallel run lint:package",
     "mr:lint:fix": "pnpm --parallel run lint:package:fix",
     "mr:format": "prettier --write --ignore-unknown .",
-    "mr:build": "pnpm --recursive run build",
-    "mr:dev:watch": "pnpm --parallel run dev:watch"
+    "watch-web": "pnpm --filter \"@document-generator/renderer-web\" run dev:watch",
+    "build-pdf": "pnpm --filter \"@document-generator/renderer-pdf\" run build"
   },
   "devDependencies": {
     "husky": "^8.0.1",
@@ -19,7 +19,6 @@
     "rimraf": "^3.0.2"
   },
   "engines": {
-    "node": "^16.14.0",
     "pnpm": "^7.1.2"
   }
 }

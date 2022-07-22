@@ -1,4 +1,4 @@
 {
   "editor.rulers": [100],
-  "typescript.tsdk": "./packages/documents/node_modules/typescript/lib"
+  "typescript.tsdk": "./packages/renderer-pdf/node_modules/typescript/lib"
 }

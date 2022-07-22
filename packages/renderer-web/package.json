@@ -5,14 +5,13 @@
   "scripts": {
     "postinstall": "ts-patch install -s",
     "nuke": "pnpm run nuke:build",
-    "nuke:build": "rimraf build *.tsbuildinfo",
+    "nuke:build": "rimraf dist *.tsbuildinfo",
     "dev:watch": "next dev",
     "lint": "eslint --max-warnings 0",
     "lint:package": "pnpm run lint .",
     "lint:package:fix": "pnpm run lint:package --fix"
   },
   "dependencies": {
-    "@document-generator/documents": "workspace:1.0.0",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "dayjs": "^1.10.4",
