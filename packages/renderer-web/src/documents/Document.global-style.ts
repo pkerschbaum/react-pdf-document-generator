@@ -1,6 +1,6 @@
 import * as styled from 'styled-components';
 
-export const GlobalAppStyles = styled.createGlobalStyle`
+export const GlobalStyles = styled.createGlobalStyle`
   *:root {
     --spacing-xs: 16px;
     --spacing-sm: 32px;

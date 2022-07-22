@@ -2,7 +2,7 @@ import type React from 'react';
 import dayjs from 'dayjs';
 
 import styled from 'styled-components';
-import { GlobalAppStyles } from '#/css/global';
+import { GlobalStyles } from '#/documents/Document.global-style';
 
 const invoiceData = {
   year: 2021,
@@ -148,7 +148,7 @@ export const Document: React.FC = () => {
 
   return (
     <>
-      <GlobalAppStyles />
+      <GlobalStyles />
 
       <Root>
         <Header>
