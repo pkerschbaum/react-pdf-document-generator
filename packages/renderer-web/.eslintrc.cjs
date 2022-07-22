@@ -13,7 +13,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
   ],
-  ignorePatterns: [...(baseEslintConfig.ignorePatterns ?? []), 'config-overrides.js'],
+  ignorePatterns: [...(baseEslintConfig.ignorePatterns ?? []), 'next.config.js'],
   rules: {
     ...baseEslintConfig.rules,
     'react/prop-types': 'off',

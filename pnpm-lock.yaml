@@ -19,7 +19,6 @@ importers:
       '@types/node': ^16.7.10
       '@typescript-eslint/eslint-plugin': ^5.30.7
       '@typescript-eslint/parser': ^5.30.7
-      dayjs: ^1.10.4
       eslint: ^8.20.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-only-warn: ^1.0.3
@@ -30,7 +29,6 @@ importers:
       typescript-transform-paths: ^3.3.1
     dependencies:
       '@types/node': 16.11.45
-      dayjs: 1.11.4
       puppeteer: 15.5.0
     devDependencies:
       '@typescript-eslint/eslint-plugin': 5.30.7_6wltbjakwuqm7awqswigmiuhd4

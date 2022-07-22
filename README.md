@@ -5,7 +5,7 @@ Create PDF documents/reports using [React](https://github.com/facebook/react) an
 ## Motivation
 
 HTML and CSS allow to build complex page layouts - so why don't use them to create documents and reports?  
-Many people have used tools like [Jasper Reports](https://community.jaspersoft.com/) to build such documents and generate PDF files from them, but recent innovations in the web ecosystem like [Puppeteer](https://pptr.dev/) allow to do the same thing using the web technologies we all love ❤️.
+Many people have used tools like [Jasper Reports](https://community.jaspersoft.com/) to build such documents and generate PDF files from them, but recent innovations in the web ecosystem like [Puppeteer](https://pptr.dev/) allow to do the same thing using the web technologies we all love ❤️
 
 ## Prerequisites
 
@@ -32,11 +32,21 @@ pnpm i
 
 ## How to run
 
-1. **Run an initial build:**
+1. **Start watcher for the web app:**
 
    ```sh
-   pnpm run mr:build
+   pnpm run watch-web
    ```
+
+   This starts a [Next.js](https://nextjs.org/) web app that renders the document in the browser. The web app will automatically refresh on every change, giving a tight feedback loop while editing the document.
+
+1. **Generate PDF on demand:**
+
+   ```sh
+   pnpm run build-web
+   ```
+
+   This will regenerate [./packages/renderer-pdf/out/out.pdf](./packages/renderer-pdf/out/out.pdf) on file changes.
 
    > **Note:** This command will also run Puppeteer.  
    > If you have some errors with Puppeteer, like "error while loading shared libraries: libatk-1.0.so.0", make sure you have installed all dependencies on your system necessary to run Puppeteer/Chrome.  
@@ -44,15 +54,4 @@ pnpm i
    > `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install ./google-chrome-stable_current_amd64.deb`  
    > See also this link for more information: <https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md>.
 
-1. **Start watchers:**
-
-   ```sh
-   pnpm run mr:dev:watch
-   ```
-
-   This starts
-
-   - a minimal web app that renders the document in the browser. The web app will automatically refresh on every change, giving a tight feedback loop while editing the document.
-   - a watcher which will regenerate [./packages/renderer-pdf/out/out.pdf](./packages/renderer-pdf/out/out.pdf) on file changes.
-
-The document which is rendered is located here: [./packages/documents/src/Document.tsx](./packages/documents/src/Document.tsx).
+The document which is rendered is located here: [./packages/renderer-web/src/documents/Document.tsx](./packages/documents/src/Document.tsx).
