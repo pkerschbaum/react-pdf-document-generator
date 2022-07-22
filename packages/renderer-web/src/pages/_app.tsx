@@ -11,6 +11,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       </Head>
 
       <ResetStyles />
+      <GlobalStyles />
 
       <Component {...pageProps} />
     </>
@@ -87,6 +88,12 @@ const ResetStyles = styled.createGlobalStyle`
   #root,
   #__next {
     isolation: isolate;
+  }
+`;
+
+const GlobalStyles = styled.createGlobalStyle`
+  *:root {
+    font-family: 'Open Sans', sans-serif;
   }
 `;
 

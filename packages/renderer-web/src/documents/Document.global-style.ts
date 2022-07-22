@@ -5,9 +5,6 @@ export const GlobalStyles = styled.createGlobalStyle`
     --spacing-xs: 16px;
     --spacing-sm: 32px;
     --spacing-md: 64px;
-
-    font-family: Arial;
-    font-size: 16px;
   }
 
   body {

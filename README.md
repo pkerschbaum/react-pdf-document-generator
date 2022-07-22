@@ -20,8 +20,6 @@ Many people have used tools like [Jasper Reports](https://community.jaspersoft.c
   npm i -g pnpm
   ```
 
-- Fonts: Make sure that on the machine generating the PDF output, all fonts you want to use are installed. Otherwise, [Puppeteer](https://pptr.dev/) will apply a fallback font, resulting in a slightly different output compared to the output rendered in the web browser.
-
 ## Setup
 
 ```sh
@@ -48,8 +46,8 @@ pnpm i
 
    This will regenerate [./packages/renderer-pdf/out/out.pdf](./packages/renderer-pdf/out/out.pdf) on file changes.
 
-   > **Note:** This command will also run Puppeteer.  
-   > If you have some errors with Puppeteer, like "error while loading shared libraries: libatk-1.0.so.0", make sure you have installed all dependencies on your system necessary to run Puppeteer/Chrome.  
+   > **Note:** This command will run Puppeteer.  
+   > If you get an error like "error while loading shared libraries: libatk-1.0.so.0", make sure you have installed all dependencies on your system necessary to run Puppeteer/Chrome.  
    > One way to get all dependencies is to just install Chrome. For Ubuntu, execute this command in a temporary directory:  
    > `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install ./google-chrome-stable_current_amd64.deb`  
    > See also this link for more information: <https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md>.
