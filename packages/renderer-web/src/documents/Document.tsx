@@ -43,15 +43,6 @@ const invoiceData = {
   ],
 };
 
-const Root = styled.div`
-  /* typical A4 padding */
-  padding: 27mm 16mm 27mm 16mm;
-
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-`;
-
 const Header = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -150,128 +141,126 @@ export const Document: React.FC = () => {
     <>
       <GlobalStyles />
 
-      <Root>
-        <Header>
-          <SupplierArea>
-            <span>{invoiceData.supplier.name}</span>
-            <br />
-            <span>{invoiceData.supplier.street}</span>
-            <br />
-            <span>
-              {invoiceData.supplier.zipCode} {invoiceData.supplier.city}
-            </span>
-            <br />
-            <span>UID: {invoiceData.supplier.uid}</span>
-          </SupplierArea>
-        </Header>
-
-        <Divider />
-
-        <Recipient>
-          <span>{invoiceData.recipient.name}</span>
+      <Header>
+        <SupplierArea>
+          <span>{invoiceData.supplier.name}</span>
           <br />
-          <span>{invoiceData.recipient.street}</span>
+          <span>{invoiceData.supplier.street}</span>
           <br />
           <span>
-            {invoiceData.recipient.zipCode} {invoiceData.recipient.city}
+            {invoiceData.supplier.zipCode} {invoiceData.supplier.city}
           </span>
           <br />
-          <span>UID: {invoiceData.recipient.uid}</span>
-          <br />
-        </Recipient>
+          <span>UID: {invoiceData.supplier.uid}</span>
+        </SupplierArea>
+      </Header>
 
-        <InvoiceHeading>
-          <span>
-            Rechnung Nr. {invoiceData.year}-{`${invoiceData.nr}`.padStart(2, '0')}
-          </span>
+      <Divider />
 
-          <span>
-            {invoiceData.location}, am {dayjs().format('D. MMMM YYYY')}
-          </span>
-        </InvoiceHeading>
+      <Recipient>
+        <span>{invoiceData.recipient.name}</span>
+        <br />
+        <span>{invoiceData.recipient.street}</span>
+        <br />
+        <span>
+          {invoiceData.recipient.zipCode} {invoiceData.recipient.city}
+        </span>
+        <br />
+        <span>UID: {invoiceData.recipient.uid}</span>
+        <br />
+      </Recipient>
 
-        <InvoiceRecordsContainer>
-          <InvoiceRecordsTable>
-            <thead>
-              <InvoiceRecordsRow>
-                <InvoiceRecordsTd as="th">Pos.</InvoiceRecordsTd>
-                <InvoiceRecordsTd as="th">Beschreibung</InvoiceRecordsTd>
-                <InvoiceRecordsTd as="th">Preis</InvoiceRecordsTd>
-                <InvoiceRecordsTd as="th">Menge</InvoiceRecordsTd>
-                <InvoiceRecordsTd as="th">Betrag</InvoiceRecordsTd>
+      <InvoiceHeading>
+        <span>
+          Rechnung Nr. {invoiceData.year}-{`${invoiceData.nr}`.padStart(2, '0')}
+        </span>
+
+        <span>
+          {invoiceData.location}, am {dayjs().format('D. MMMM YYYY')}
+        </span>
+      </InvoiceHeading>
+
+      <InvoiceRecordsContainer>
+        <InvoiceRecordsTable>
+          <thead>
+            <InvoiceRecordsRow>
+              <InvoiceRecordsTd as="th">Pos.</InvoiceRecordsTd>
+              <InvoiceRecordsTd as="th">Beschreibung</InvoiceRecordsTd>
+              <InvoiceRecordsTd as="th">Preis</InvoiceRecordsTd>
+              <InvoiceRecordsTd as="th">Menge</InvoiceRecordsTd>
+              <InvoiceRecordsTd as="th">Betrag</InvoiceRecordsTd>
+            </InvoiceRecordsRow>
+          </thead>
+
+          <tbody>
+            {invoiceData.items.map((item, idx) => (
+              <InvoiceRecordsRow key={idx}>
+                <InvoiceRecordsTd>{idx + 1}</InvoiceRecordsTd>
+                <InvoiceRecordsTd>{item.description}</InvoiceRecordsTd>
+                <InvoiceRecordsTd>
+                  {formatter.number(item.price, {
+                    format: 'currency',
+                    countOfDecimals: 0,
+                  })}
+                </InvoiceRecordsTd>
+                <InvoiceRecordsTd>
+                  {formatter.number(item.amount, { countOfDecimals: 2 })}
+                </InvoiceRecordsTd>
+                <InvoiceRecordsTd>
+                  {formatter.number(item.price * item.amount, {
+                    format: 'currency',
+                  })}
+                </InvoiceRecordsTd>
               </InvoiceRecordsRow>
-            </thead>
+            ))}
 
-            <tbody>
-              {invoiceData.items.map((item, idx) => (
-                <InvoiceRecordsRow key={idx}>
-                  <InvoiceRecordsTd>{idx + 1}</InvoiceRecordsTd>
-                  <InvoiceRecordsTd>{item.description}</InvoiceRecordsTd>
-                  <InvoiceRecordsTd>
-                    {formatter.number(item.price, {
-                      format: 'currency',
-                      countOfDecimals: 0,
-                    })}
-                  </InvoiceRecordsTd>
-                  <InvoiceRecordsTd>
-                    {formatter.number(item.amount, { countOfDecimals: 2 })}
-                  </InvoiceRecordsTd>
-                  <InvoiceRecordsTd>
-                    {formatter.number(item.price * item.amount, {
-                      format: 'currency',
-                    })}
-                  </InvoiceRecordsTd>
-                </InvoiceRecordsRow>
-              ))}
+            <InvoiceRecordsSubtotalsRow>
+              <InvoiceRecordsTd colSpan={2} />
+              <InvoiceRecordsTd colSpan={2}>Netto</InvoiceRecordsTd>
+              <InvoiceRecordsTd colSpan={1}>
+                {formatter.number(nettoSum, { format: 'currency' })}
+              </InvoiceRecordsTd>
+            </InvoiceRecordsSubtotalsRow>
 
-              <InvoiceRecordsSubtotalsRow>
-                <InvoiceRecordsTd colSpan={2} />
-                <InvoiceRecordsTd colSpan={2}>Netto</InvoiceRecordsTd>
-                <InvoiceRecordsTd colSpan={1}>
-                  {formatter.number(nettoSum, { format: 'currency' })}
-                </InvoiceRecordsTd>
-              </InvoiceRecordsSubtotalsRow>
+            <InvoiceRecordsSubtotalsRow>
+              <InvoiceRecordsTd colSpan={2} />
+              <InvoiceRecordsTd colSpan={2}>20% USt.</InvoiceRecordsTd>
+              <InvoiceRecordsTd colSpan={1}>
+                {formatter.number(ust, { format: 'currency' })}
+              </InvoiceRecordsTd>
+            </InvoiceRecordsSubtotalsRow>
 
-              <InvoiceRecordsSubtotalsRow>
-                <InvoiceRecordsTd colSpan={2} />
-                <InvoiceRecordsTd colSpan={2}>20% USt.</InvoiceRecordsTd>
-                <InvoiceRecordsTd colSpan={1}>
-                  {formatter.number(ust, { format: 'currency' })}
-                </InvoiceRecordsTd>
-              </InvoiceRecordsSubtotalsRow>
+            <InvoiceRecordsTotalsRow>
+              <InvoiceRecordsTd colSpan={2} />
+              <InvoiceRecordsTd colSpan={2}>Endsumme inkl. USt.</InvoiceRecordsTd>
+              <InvoiceRecordsTd colSpan={1}>
+                {formatter.number(bruttoSum, { format: 'currency' })}
+              </InvoiceRecordsTd>
+            </InvoiceRecordsTotalsRow>
+          </tbody>
+        </InvoiceRecordsTable>
 
-              <InvoiceRecordsTotalsRow>
-                <InvoiceRecordsTd colSpan={2} />
-                <InvoiceRecordsTd colSpan={2}>Endsumme inkl. USt.</InvoiceRecordsTd>
-                <InvoiceRecordsTd colSpan={1}>
-                  {formatter.number(bruttoSum, { format: 'currency' })}
-                </InvoiceRecordsTd>
-              </InvoiceRecordsTotalsRow>
-            </tbody>
-          </InvoiceRecordsTable>
+        <PaymentDetails>
+          <span>IBAN: {invoiceData.supplier.iban}</span>
+          <br />
+          <span>BIC: {invoiceData.supplier.bic}</span>
+          <br />
+          <span>Zahlungsziel: 30 Tage nach Rechnungserhalt</span>
+          <br />
+        </PaymentDetails>
 
-          <PaymentDetails>
-            <span>IBAN: {invoiceData.supplier.iban}</span>
-            <br />
-            <span>BIC: {invoiceData.supplier.bic}</span>
-            <br />
-            <span>Zahlungsziel: 30 Tage nach Rechnungserhalt</span>
-            <br />
-          </PaymentDetails>
+        <GreetingSection>
+          <div>Mit freundlichen Grüßen,</div>
 
-          <GreetingSection>
-            <div>Mit freundlichen Grüßen,</div>
+          <div>{invoiceData.supplier.name}</div>
+        </GreetingSection>
+      </InvoiceRecordsContainer>
 
-            <div>{invoiceData.supplier.name}</div>
-          </GreetingSection>
-        </InvoiceRecordsContainer>
+      <SpacerXs />
+      <Divider />
 
-        <SpacerXs />
-        <Divider />
-
-        <SpacerXs />
-        <div>Anhang: Bestätigung des Kunden</div>
-      </Root>
+      <SpacerXs />
+      <div>Anhang: Bestätigung des Kunden</div>
     </>
   );
 };

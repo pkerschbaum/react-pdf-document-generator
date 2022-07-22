@@ -3,6 +3,10 @@ const nextConfig = {
   distDir: 'dist',
   reactStrictMode: true,
 
+  compiler: {
+    styledComponents: true,
+  },
+
   eslint: {
     dirs: ['.'],
     ignoreDuringBuilds: true,

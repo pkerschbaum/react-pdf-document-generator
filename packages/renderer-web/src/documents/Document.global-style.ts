@@ -10,6 +10,11 @@ export const GlobalStyles = styled.createGlobalStyle`
     font-size: 16px;
   }
 
+  body {
+    /* typical A4 padding */
+    padding: 27mm 16mm 27mm 16mm;
+  }
+
   @media not print {
     /* these styles simulate a A4 paper for the web app */
     *:root {
