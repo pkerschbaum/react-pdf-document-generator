@@ -1,6 +1,6 @@
 # react-pdf-document-renderer
 
-Create PDF documents/reports using [React](https://github.com/facebook/react) and [emotion](https://github.com/emotion-js/emotion).
+Create PDF documents/reports using [React](https://github.com/facebook/react) and [styled-components](https://styled-components.com/).
 
 ## Motivation
 

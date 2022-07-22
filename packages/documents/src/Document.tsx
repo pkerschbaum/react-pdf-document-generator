@@ -1,10 +1,9 @@
 import type React from 'react';
 import dayjs from 'dayjs';
-import { css, Global } from '@emotion/react';
 
-import { resetCss } from '#/css/reset';
-import { globalCss } from '#/css/global';
-import { styles } from '#/Document.styles';
+import styled from 'styled-components';
+import { CSSReset } from '#/css/reset';
+import { GlobalAppStyles } from '#/css/global';
 
 const invoiceData = {
   year: 2021,
@@ -45,6 +44,108 @@ const invoiceData = {
   ],
 };
 
+const Root = styled.div`
+  --spacing-xs: 16px;
+  --spacing-sm: 32px;
+  --spacing-md: 64px;
+
+  font-family: Arial;
+  font-size: 16px;
+
+  /* typical A4 padding */
+  padding: 27mm 16mm 27mm 16mm;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+`;
+
+const Header = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  text-align: right;
+`;
+
+const SupplierArea = styled.div`
+  text-align: right;
+`;
+
+const Divider = styled.hr`
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+`;
+
+const Recipient = styled.div`
+  margin-top: var(--spacing-sm);
+`;
+
+const InvoiceHeading = styled.div`
+  margin-top: var(--spacing-sm);
+  display: flex;
+  justify-content: space-between;
+
+  & > *:nth-of-type(1) {
+    font-weight: bold;
+  }
+`;
+
+const InvoiceRecordsContainer = styled.div`
+  margin-top: var(--spacing-xs);
+`;
+
+const InvoiceRecordsTable = styled.table`
+  width: 100%;
+`;
+
+const InvoiceRecordsRow = styled.tr``;
+const InvoiceRecordsSubtotalsRow = styled(InvoiceRecordsRow)``;
+const InvoiceRecordsTotalsRow = styled(InvoiceRecordsRow)``;
+const InvoiceRecordsTd = styled.th`
+  ${InvoiceRecordsRow} > &:last-of-type {
+    text-align: right;
+  }
+
+  ${InvoiceRecordsSubtotalsRow} > & {
+    border: 0;
+  }
+
+  ${InvoiceRecordsSubtotalsRow} > &:nth-of-type(2),
+  ${InvoiceRecordsSubtotalsRow} > &:nth-of-type(3) {
+    text-align: right;
+  }
+
+  ${InvoiceRecordsTotalsRow} > &:nth-of-type(1) {
+    border: 0;
+  }
+  ${InvoiceRecordsTotalsRow} > &:nth-of-type(2),
+  ${InvoiceRecordsTotalsRow} > &:nth-of-type(3) {
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 1px;
+    text-align: right;
+  }
+`;
+
+const PaymentDetails = styled.div`
+  margin-top: var(--spacing-xs);
+`;
+
+const GreetingSection = styled.div`
+  & > div:nth-of-type(1) {
+    margin-top: var(--spacing-sm);
+  }
+  & > div:nth-of-type(2) {
+    margin-top: var(--spacing-md);
+  }
+`;
+
+const SpacerXs = styled.div`
+  margin-top: var(--spacing-xs);
+`;
+
 export const Document: React.FC = () => {
   let nettoSum = 0;
   for (const item of invoiceData.items) {
@@ -55,11 +156,12 @@ export const Document: React.FC = () => {
 
   return (
     <>
-      <Global styles={[resetCss, globalCss]} />
+      <CSSReset />
+      <GlobalAppStyles />
 
-      <div css={styles.root}>
-        <div css={styles.header}>
-          <div css={styles.supplierArea}>
+      <Root>
+        <Header>
+          <SupplierArea>
             <span>{invoiceData.supplier.name}</span>
             <br />
             <span>{invoiceData.supplier.street}</span>
@@ -69,12 +171,12 @@ export const Document: React.FC = () => {
             </span>
             <br />
             <span>UID: {invoiceData.supplier.uid}</span>
-          </div>
-        </div>
+          </SupplierArea>
+        </Header>
 
-        <hr css={styles.divider} />
+        <Divider />
 
-        <div css={styles.spacingSm}>
+        <Recipient>
           <span>{invoiceData.recipient.name}</span>
           <br />
           <span>{invoiceData.recipient.street}</span>
@@ -85,184 +187,100 @@ export const Document: React.FC = () => {
           <br />
           <span>UID: {invoiceData.recipient.uid}</span>
           <br />
-        </div>
+        </Recipient>
 
-        <div
-          css={[
-            styles.spacingSm,
-            css`
-              display: flex;
-              justify-content: space-between;
-            `,
-          ]}
-        >
-          <span
-            css={css`
-              font-weight: bold;
-            `}
-          >
+        <InvoiceHeading>
+          <span>
             Rechnung Nr. {invoiceData.year}-{`${invoiceData.nr}`.padStart(2, '0')}
           </span>
 
           <span>
             {invoiceData.location}, am {dayjs().format('D. MMMM YYYY')}
           </span>
-        </div>
+        </InvoiceHeading>
 
-        <div css={styles.spacingXs}>
-          <table
-            css={css`
-              width: 100%;
-            `}
-          >
+        <InvoiceRecordsContainer>
+          <InvoiceRecordsTable>
             <thead>
-              <tr>
-                <th>Pos.</th>
-                <th>Beschreibung</th>
-                <th>Preis</th>
-                <th>Menge</th>
-                <th
-                  css={css`
-                    text-align: right;
-                  `}
-                >
-                  Betrag
-                </th>
-              </tr>
+              <InvoiceRecordsRow>
+                <InvoiceRecordsTd as="th">Pos.</InvoiceRecordsTd>
+                <InvoiceRecordsTd as="th">Beschreibung</InvoiceRecordsTd>
+                <InvoiceRecordsTd as="th">Preis</InvoiceRecordsTd>
+                <InvoiceRecordsTd as="th">Menge</InvoiceRecordsTd>
+                <InvoiceRecordsTd as="th">Betrag</InvoiceRecordsTd>
+              </InvoiceRecordsRow>
             </thead>
+
             <tbody>
               {invoiceData.items.map((item, idx) => (
-                <tr key={idx}>
-                  <td>{idx + 1}</td>
-                  <td>{item.description}</td>
-                  <td>
+                <InvoiceRecordsRow key={idx}>
+                  <InvoiceRecordsTd>{idx + 1}</InvoiceRecordsTd>
+                  <InvoiceRecordsTd>{item.description}</InvoiceRecordsTd>
+                  <InvoiceRecordsTd>
                     {formatter.number(item.price, {
                       format: 'currency',
                       countOfDecimals: 0,
                     })}
-                  </td>
-                  <td>{formatter.number(item.amount, { countOfDecimals: 2 })}</td>
-                  <td
-                    css={css`
-                      text-align: right;
-                    `}
-                  >
+                  </InvoiceRecordsTd>
+                  <InvoiceRecordsTd>
+                    {formatter.number(item.amount, { countOfDecimals: 2 })}
+                  </InvoiceRecordsTd>
+                  <InvoiceRecordsTd>
                     {formatter.number(item.price * item.amount, {
                       format: 'currency',
                     })}
-                  </td>
-                </tr>
+                  </InvoiceRecordsTd>
+                </InvoiceRecordsRow>
               ))}
 
-              <tr>
-                <td
-                  colSpan={2}
-                  css={css`
-                    border: 0;
-                  `}
-                ></td>
-                <td
-                  colSpan={2}
-                  css={css`
-                    border: 0;
-                    text-align: right;
-                  `}
-                >
-                  Netto
-                </td>
-                <td
-                  colSpan={1}
-                  css={css`
-                    border: 0;
-                    text-align: right;
-                  `}
-                >
+              <InvoiceRecordsSubtotalsRow>
+                <InvoiceRecordsTd colSpan={2} />
+                <InvoiceRecordsTd colSpan={2}>Netto</InvoiceRecordsTd>
+                <InvoiceRecordsTd colSpan={1}>
                   {formatter.number(nettoSum, { format: 'currency' })}
-                </td>
-              </tr>
+                </InvoiceRecordsTd>
+              </InvoiceRecordsSubtotalsRow>
 
-              <tr>
-                <td
-                  colSpan={2}
-                  css={css`
-                    border: 0;
-                  `}
-                ></td>
-                <td
-                  colSpan={2}
-                  css={css`
-                    border: 0;
-                    text-align: right;
-                  `}
-                >
-                  20% USt.
-                </td>
-                <td
-                  colSpan={1}
-                  css={css`
-                    border: 0;
-                    text-align: right;
-                  `}
-                >
+              <InvoiceRecordsSubtotalsRow>
+                <InvoiceRecordsTd colSpan={2} />
+                <InvoiceRecordsTd colSpan={2}>20% USt.</InvoiceRecordsTd>
+                <InvoiceRecordsTd colSpan={1}>
                   {formatter.number(ust, { format: 'currency' })}
-                </td>
-              </tr>
+                </InvoiceRecordsTd>
+              </InvoiceRecordsSubtotalsRow>
 
-              <tr>
-                <td
-                  colSpan={2}
-                  css={css`
-                    border: 0;
-                  `}
-                ></td>
-                <td
-                  colSpan={2}
-                  css={css`
-                    border-bottom-width: 0;
-                    border-left-width: 0;
-                    border-right-width: 0;
-                    border-top-width: 1px;
-                    text-align: right;
-                  `}
-                >
-                  Endsumme inkl. USt.
-                </td>
-                <td
-                  colSpan={1}
-                  css={css`
-                    border-bottom-width: 0;
-                    border-left-width: 0;
-                    border-right-width: 0;
-                    border-top-width: 1px;
-                    text-align: right;
-                  `}
-                >
+              <InvoiceRecordsTotalsRow>
+                <InvoiceRecordsTd colSpan={2} />
+                <InvoiceRecordsTd colSpan={2}>Endsumme inkl. USt.</InvoiceRecordsTd>
+                <InvoiceRecordsTd colSpan={1}>
                   {formatter.number(bruttoSum, { format: 'currency' })}
-                </td>
-              </tr>
+                </InvoiceRecordsTd>
+              </InvoiceRecordsTotalsRow>
             </tbody>
-          </table>
+          </InvoiceRecordsTable>
 
-          <div css={styles.spacingXs}>
+          <PaymentDetails>
             <span>IBAN: {invoiceData.supplier.iban}</span>
             <br />
             <span>BIC: {invoiceData.supplier.bic}</span>
             <br />
             <span>Zahlungsziel: 30 Tage nach Rechnungserhalt</span>
             <br />
-          </div>
+          </PaymentDetails>
 
-          <div css={styles.spacingSm}>
-            <span>Mit freundlichen Grüßen,</span>
-          </div>
+          <GreetingSection>
+            <div>Mit freundlichen Grüßen,</div>
 
-          <div css={styles.spacingMd}>{invoiceData.supplier.name}</div>
-        </div>
+            <div>{invoiceData.supplier.name}</div>
+          </GreetingSection>
+        </InvoiceRecordsContainer>
 
-        <hr css={[styles.divider, styles.spacingXs]} />
+        <SpacerXs />
+        <Divider />
 
-        <div css={styles.spacingXs}>Anhang: Bestätigung des Kunden</div>
-      </div>
+        <SpacerXs />
+        <div>Anhang: Bestätigung des Kunden</div>
+      </Root>
     </>
   );
 };
