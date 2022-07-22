@@ -1,7 +1,7 @@
-import { css } from '@emotion/react';
+import * as styled from 'styled-components';
 
 // https://codepen.io/chriscoyier/pen/YrbNGP.css
-export const resetCss = css`
+export const CSSReset = styled.createGlobalStyle`
   *,
   *::before,
   *::after {

@@ -1,6 +1,6 @@
-import { css } from '@emotion/react';
+import * as styled from 'styled-components';
 
-export const globalCss = css`
+export const GlobalAppStyles = styled.createGlobalStyle`
   td,
   th {
     border: 1px solid black;
