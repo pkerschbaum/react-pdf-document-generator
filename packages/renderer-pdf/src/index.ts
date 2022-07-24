@@ -1,6 +1,8 @@
-import puppeteer from 'puppeteer';
 import fs from 'fs';
 import path from 'path';
+import puppeteer from 'puppeteer';
+
+import { logger } from '#/logger';
 
 async function printPDF() {
   const browser = await puppeteer.launch({ headless: true });
@@ -20,7 +22,7 @@ async function run() {
     const pdf = await printPDF();
     await fs.promises.writeFile(path.join(__dirname, '..', 'out', 'out.pdf'), pdf);
   } catch (err: unknown) {
-    console.error(err);
+    logger.error(err);
     throw err;
   }
 }

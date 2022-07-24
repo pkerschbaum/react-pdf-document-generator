@@ -1,7 +1,8 @@
-import type React from 'react';
+import { assertIsUnreachable } from '@pkerschbaum/ts-utils';
 import dayjs from 'dayjs';
-
+import type React from 'react';
 import styled from 'styled-components';
+
 import { GlobalStyles } from '#/documents/Document.global-style';
 
 const invoiceData = {
@@ -272,7 +273,7 @@ const formatter = {
       countOfDecimals?: number;
       withPositiveSign?: boolean;
       stripNegativeSign?: boolean;
-      format?: 'currency' | 'percentage_int';
+      format?: 'currency' | 'percentage_int' | 'percentage_float';
     },
   ): string | undefined {
     if (num === undefined) {
@@ -283,12 +284,21 @@ const formatter = {
 
     let countOfDecimals;
     if (options.format !== undefined) {
-      if (options.format === 'currency') {
-        countOfDecimals = 2;
-      } else if (options.format === 'percentage_int') {
-        countOfDecimals = 0;
-      } else if (options.format === 'percentage_float') {
-        countOfDecimals = 2;
+      switch (options.format) {
+        case 'currency': {
+          countOfDecimals = 2;
+          break;
+        }
+        case 'percentage_int': {
+          countOfDecimals = 0;
+          break;
+        }
+        case 'percentage_float': {
+          countOfDecimals = 2;
+          break;
+        }
+        default:
+          assertIsUnreachable(options.format);
       }
     }
     if (options.countOfDecimals !== undefined) {
@@ -308,9 +318,9 @@ const formatter = {
 
     if (options.format !== undefined) {
       if (options.format === 'currency') {
-        result = '€ ' + result;
+        result = `€ ${result}`;
       } else if (options.format === 'percentage_int' || options.format === 'percentage_float') {
-        result = result + '%';
+        result = `${result}%`;
       }
     }
 

@@ -19,10 +19,16 @@ module.exports = {
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
   },
-  env: {
-    ...baseEslintConfig.env,
-    'shared-node-browser': true,
-  },
+  overrides: [
+    ...(baseEslintConfig.overrides ?? []),
+    {
+      // allow default export for Next.js pages
+      files: ['src/pages/**/*'],
+      rules: {
+        'import/no-default-export': 'off',
+      },
+    },
+  ],
   settings: {
     react: {
       version: 'detect',

@@ -6,8 +6,4 @@ module.exports = {
     ...baseEslintConfig.parserOptions,
     tsconfigRootDir: __dirname,
   },
-  env: {
-    ...baseEslintConfig.env,
-    node: true,
-  },
 };

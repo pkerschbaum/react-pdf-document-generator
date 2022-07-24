@@ -12,9 +12,14 @@
     "lint:package:fix": "pnpm run lint:package --fix"
   },
   "dependencies": {
+    "@pkerschbaum/ts-utils": "^0.0.1",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "dayjs": "^1.10.4",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-regexp": "^1.7.0",
     "next": "^12.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
