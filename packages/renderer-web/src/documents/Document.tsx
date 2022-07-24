@@ -1,9 +1,9 @@
-import { assertIsUnreachable } from '@pkerschbaum/ts-utils';
 import dayjs from 'dayjs';
 import type React from 'react';
 import styled from 'styled-components';
 
 import { GlobalStyles } from '#/documents/Document.global-style';
+import { formatter } from '#/formatter';
 
 const invoiceData = {
   year: 2021,
@@ -44,92 +44,6 @@ const invoiceData = {
   ],
 };
 
-const Header = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  text-align: right;
-`;
-
-const SupplierArea = styled.div`
-  text-align: right;
-`;
-
-const Divider = styled.hr`
-  width: 100%;
-  margin-top: 8px;
-  margin-bottom: 8px;
-`;
-
-const Recipient = styled.div`
-  margin-top: var(--spacing-sm);
-`;
-
-const InvoiceHeading = styled.div`
-  margin-top: var(--spacing-sm);
-  display: flex;
-  justify-content: space-between;
-
-  & > *:nth-of-type(1) {
-    font-weight: bold;
-  }
-`;
-
-const InvoiceRecordsContainer = styled.div`
-  margin-top: var(--spacing-xs);
-`;
-
-const InvoiceRecordsTable = styled.table`
-  width: 100%;
-`;
-
-const InvoiceRecordsRow = styled.tr``;
-const InvoiceRecordsSubtotalsRow = styled(InvoiceRecordsRow)``;
-const InvoiceRecordsTotalsRow = styled(InvoiceRecordsRow)``;
-const InvoiceRecordsTd = styled.td`
-  ${InvoiceRecordsRow} > &:last-of-type {
-    text-align: right;
-  }
-
-  ${InvoiceRecordsSubtotalsRow} > & {
-    border: 0;
-  }
-
-  ${InvoiceRecordsSubtotalsRow} > &:nth-of-type(2),
-  ${InvoiceRecordsSubtotalsRow} > &:nth-of-type(3) {
-    text-align: right;
-  }
-
-  ${InvoiceRecordsTotalsRow} > &:nth-of-type(1) {
-    border: 0;
-  }
-  ${InvoiceRecordsTotalsRow} > &:nth-of-type(2),
-  ${InvoiceRecordsTotalsRow} > &:nth-of-type(3) {
-    border-bottom-width: 0;
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 1px;
-    text-align: right;
-  }
-`;
-
-const PaymentDetails = styled.div`
-  margin-top: var(--spacing-xs);
-`;
-
-const GreetingSection = styled.div`
-  & > div:nth-of-type(1) {
-    margin-top: var(--spacing-sm);
-  }
-  & > div:nth-of-type(2) {
-    margin-top: var(--spacing-md);
-  }
-`;
-
-const SpacerXs = styled.div`
-  margin-top: var(--spacing-xs);
-`;
-
 export const Document: React.FC = () => {
   let nettoSum = 0;
   for (const item of invoiceData.items) {
@@ -143,7 +57,7 @@ export const Document: React.FC = () => {
       <GlobalStyles />
 
       <Header>
-        <SupplierArea>
+        <SupplierRegion>
           <span>{invoiceData.supplier.name}</span>
           <br />
           <span>{invoiceData.supplier.street}</span>
@@ -153,12 +67,12 @@ export const Document: React.FC = () => {
           </span>
           <br />
           <span>UID: {invoiceData.supplier.uid}</span>
-        </SupplierArea>
+        </SupplierRegion>
       </Header>
 
       <Divider />
 
-      <Recipient>
+      <RecipientRegion>
         <span>{invoiceData.recipient.name}</span>
         <br />
         <span>{invoiceData.recipient.street}</span>
@@ -169,7 +83,7 @@ export const Document: React.FC = () => {
         <br />
         <span>UID: {invoiceData.recipient.uid}</span>
         <br />
-      </Recipient>
+      </RecipientRegion>
 
       <InvoiceHeading>
         <span>
@@ -266,70 +180,88 @@ export const Document: React.FC = () => {
   );
 };
 
-const formatter = {
-  number(
-    num: number | undefined,
-    options: {
-      countOfDecimals?: number;
-      withPositiveSign?: boolean;
-      stripNegativeSign?: boolean;
-      format?: 'currency' | 'percentage_int' | 'percentage_float';
-    },
-  ): string | undefined {
-    if (num === undefined) {
-      return undefined;
-    }
+const Divider = styled.hr`
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+`;
 
-    let result: string;
+const SpacerXs = styled.div`
+  margin-top: var(--spacing-xs);
+`;
 
-    let countOfDecimals;
-    if (options.format !== undefined) {
-      switch (options.format) {
-        case 'currency': {
-          countOfDecimals = 2;
-          break;
-        }
-        case 'percentage_int': {
-          countOfDecimals = 0;
-          break;
-        }
-        case 'percentage_float': {
-          countOfDecimals = 2;
-          break;
-        }
-        default:
-          assertIsUnreachable(options.format);
-      }
-    }
-    if (options.countOfDecimals !== undefined) {
-      countOfDecimals = options.countOfDecimals;
-    }
+const Header = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  text-align: right;
+`;
 
-    const localeString = Math.abs(num).toLocaleString('de-AT', {
-      minimumFractionDigits: countOfDecimals,
-      maximumFractionDigits: countOfDecimals,
-      style: 'currency',
-      currency: 'EUR',
-    });
-    // style 'currency' and currency 'EUR' must be given to "toLocaleString" in order to have
-    // a dot (.) as thousands separator (for locale de-AT). But it also adds a € in front of the
-    // number, we want that at the end. So we strip that off
-    result = localeString.substring(2);
+const SupplierRegion = styled.div`
+  text-align: right;
+`;
 
-    if (options.format !== undefined) {
-      if (options.format === 'currency') {
-        result = `€ ${result}`;
-      } else if (options.format === 'percentage_int' || options.format === 'percentage_float') {
-        result = `${result}%`;
-      }
-    }
+const RecipientRegion = styled.div`
+  margin-top: var(--spacing-sm);
+`;
 
-    if (options.withPositiveSign !== undefined && options.withPositiveSign) {
-      result = num > 0 ? `+ ${result}` : num < 0 ? `– ${result}` : result;
-    } else if (options.stripNegativeSign === undefined || !options.stripNegativeSign) {
-      result = num < 0 ? `– ${result}` : result;
-    }
+const InvoiceHeading = styled.div`
+  margin-top: var(--spacing-sm);
+  display: flex;
+  justify-content: space-between;
 
-    return result;
-  },
-};
+  & > *:nth-of-type(1) {
+    font-weight: bold;
+  }
+`;
+
+const InvoiceRecordsContainer = styled.div`
+  margin-top: var(--spacing-xs);
+`;
+
+const InvoiceRecordsTable = styled.table`
+  width: 100%;
+`;
+
+const InvoiceRecordsRow = styled.tr``;
+const InvoiceRecordsSubtotalsRow = styled(InvoiceRecordsRow)``;
+const InvoiceRecordsTotalsRow = styled(InvoiceRecordsRow)``;
+const InvoiceRecordsTd = styled.td`
+  ${InvoiceRecordsRow} > &:last-of-type {
+    text-align: right;
+  }
+
+  ${InvoiceRecordsSubtotalsRow} > & {
+    border: 0;
+  }
+
+  ${InvoiceRecordsSubtotalsRow} > &:nth-of-type(2),
+  ${InvoiceRecordsSubtotalsRow} > &:nth-of-type(3) {
+    text-align: right;
+  }
+
+  ${InvoiceRecordsTotalsRow} > &:nth-of-type(1) {
+    border: 0;
+  }
+  ${InvoiceRecordsTotalsRow} > &:nth-of-type(2),
+  ${InvoiceRecordsTotalsRow} > &:nth-of-type(3) {
+    text-align: right;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 1px;
+  }
+`;
+
+const PaymentDetails = styled.div`
+  margin-top: var(--spacing-xs);
+`;
+
+const GreetingSection = styled.div`
+  & > div:nth-of-type(1) {
+    margin-top: var(--spacing-sm);
+  }
+  & > div:nth-of-type(2) {
+    margin-top: var(--spacing-md);
+  }
+`;

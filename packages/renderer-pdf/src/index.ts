@@ -2,9 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import puppeteer from 'puppeteer';
 
-import { logger } from '#/logger';
+const PATHS = {
+  PDF_OUTPUT: path.join(__dirname, '..', 'out', 'out.pdf'),
+};
 
-async function printPDF() {
+async function printAndWritePDF() {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
   await page.goto('http://localhost:3000', { waitUntil: 'networkidle0' });
@@ -14,17 +16,7 @@ async function printPDF() {
   await page.close();
   await browser.close();
 
-  return pdf;
+  await fs.promises.writeFile(PATHS.PDF_OUTPUT, pdf);
 }
 
-async function run() {
-  try {
-    const pdf = await printPDF();
-    await fs.promises.writeFile(path.join(__dirname, '..', 'out', 'out.pdf'), pdf);
-  } catch (err: unknown) {
-    logger.error(err);
-    throw err;
-  }
-}
-
-void run();
+void printAndWritePDF();
