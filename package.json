@@ -8,9 +8,7 @@
     "mr:nuke:node-modules": "pnpm --parallel exec rimraf node_modules && rimraf node_modules",
     "mr:lint": "pnpm --parallel run lint:package",
     "mr:lint:fix": "pnpm --parallel run lint:package:fix",
-    "mr:format": "prettier --write --ignore-unknown .",
-    "watch-web": "pnpm --filter \"@document-generator/renderer-web\" run dev:watch",
-    "build-pdf": "pnpm --filter \"@document-generator/renderer-pdf\" run build"
+    "mr:format": "prettier --write --ignore-unknown ."
   },
   "devDependencies": {
     "husky": "^8.0.1",

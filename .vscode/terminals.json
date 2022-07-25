@@ -3,15 +3,15 @@
   "terminals": [
     {
       "name": "watch-web",
-      "cwd": "[cwd]",
+      "cwd": "[cwd]/packages/renderer-web",
       "execute": false,
-      "command": "pnpm run watch-web"
+      "command": "pnpm run dev:watch"
     },
     {
       "name": "build-pdf",
-      "cwd": "[cwd]",
+      "cwd": "[cwd]/packages/renderer-pdf",
       "execute": false,
-      "command": "pnpm run build-pdf"
+      "command": "pnpm run build"
     }
   ]
 }

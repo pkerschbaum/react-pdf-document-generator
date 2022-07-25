@@ -33,7 +33,8 @@ pnpm i
 1. **Start watcher for the web app:**
 
    ```sh
-   pnpm run watch-web
+   cd ./packages/renderer-web
+   pnpm run dev:watch
    ```
 
    This starts a [Next.js](https://nextjs.org/) web app that renders the document in the browser. The web app will automatically refresh on every change, giving a tight feedback loop while editing the document.
@@ -41,7 +42,8 @@ pnpm i
 1. **Generate PDF on demand:**
 
    ```sh
-   pnpm run build-web
+   cd ./packages/renderer-pdf
+   pnpm run build
    ```
 
    This will regenerate [./packages/renderer-pdf/out/out.pdf](./packages/renderer-pdf/out/out.pdf) on file changes.
