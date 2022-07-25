@@ -7,11 +7,6 @@ export const GlobalStyles = styled.createGlobalStyle`
     --spacing-md: 64px;
   }
 
-  body {
-    /* typical A4 padding */
-    padding: 27mm 16mm 27mm 16mm;
-  }
-
   @media not print {
     /* these styles simulate a A4 paper for the web app */
     *:root {
@@ -19,8 +14,9 @@ export const GlobalStyles = styled.createGlobalStyle`
     }
 
     body {
-      margin: auto;
+      margin-inline: auto;
       width: 21cm; /* width of A4 */
+      padding: 27mm 16mm 27mm 16mm; /* typical A4 padding */
       background: white;
       box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
     }

@@ -1,22 +1,45 @@
-import fs from 'fs';
-import path from 'path';
-import puppeteer from 'puppeteer';
+import { Option, program } from 'commander';
+import fs from 'node:fs';
+import path from 'node:path';
+import url from 'node:url';
+import puppeteer, { PDFOptions } from 'puppeteer';
+
+const availableFormats = ['A4', 'US_LETTER'] as const;
+type AvailableFormats = typeof availableFormats[number];
+
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const PATHS = {
   PDF_OUTPUT: path.join(__dirname, '..', 'out', 'out.pdf'),
 };
 
-async function printAndWritePDF() {
-  const browser = await puppeteer.launch({ headless: true });
-  const page = await browser.newPage();
-  await page.goto('http://localhost:3000', { waitUntil: 'networkidle0' });
+const PAPER_FORMAT: { [format in AvailableFormats]: PDFOptions } = {
+  A4: {
+    format: 'a4',
+    margin: { top: '27mm', right: '16mm', bottom: '27mm', left: '16mm' },
+  },
+  US_LETTER: {
+    format: 'letter',
+    margin: { top: '1in', right: '1in', bottom: '1in', left: '1in' },
+  },
+};
 
-  const pdf = await page.pdf({ format: 'a4' });
+program
+  .addOption(
+    new Option('--paper-format <format>', 'Paper format used by Puppeteer')
+      .choices(availableFormats)
+      .makeOptionMandatory(true),
+  )
+  .parse();
+const options = program.opts<{ paperFormat: AvailableFormats }>();
 
-  await page.close();
-  await browser.close();
+const browser = await puppeteer.launch({ headless: true });
+const page = await browser.newPage();
+await page.goto('http://localhost:3000', { waitUntil: 'networkidle0' });
 
-  await fs.promises.writeFile(PATHS.PDF_OUTPUT, pdf);
-}
+const pdf = await page.pdf(PAPER_FORMAT[options.paperFormat]);
 
-void printAndWritePDF();
+await page.close();
+await browser.close();
+
+await fs.promises.writeFile(PATHS.PDF_OUTPUT, pdf);

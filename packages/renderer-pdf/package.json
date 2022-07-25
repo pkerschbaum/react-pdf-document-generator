@@ -1,6 +1,7 @@
 {
   "name": "@document-generator/renderer-pdf",
   "version": "1.0.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "postinstall": "ts-patch install -s",
@@ -8,13 +9,14 @@
     "nuke:build": "rimraf dist *.tsbuildinfo",
     "build": "pnpm run build:compile && pnpm run build:pdf",
     "build:compile": "tsc -p ./tsconfig.project.json",
-    "build:pdf": "node ./dist/index.js",
+    "build:pdf": "node ./dist/index.js --paper-format=A4",
     "lint": "eslint --max-warnings 0",
     "lint:package": "pnpm run lint .",
     "lint:package:fix": "pnpm run lint:package --fix"
   },
   "dependencies": {
-    "@types/node": "^16.7.10",
+    "@types/node": "^16.11.7",
+    "commander": "^9.4.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-node": "^11.1.0",

@@ -4,12 +4,12 @@
     "target": "ES2017",
 
     /* Modules */
-    "module": "commonjs",
+    "module": "node16",
     "paths": {
       "#/*": ["./src/*"]
     },
     "rootDir": "./src",
-    "types": [],
+    "types": ["node"],
 
     /* Emit */
     "declaration": true,

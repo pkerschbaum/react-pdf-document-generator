@@ -2,13 +2,19 @@
   "autorun": true,
   "terminals": [
     {
-      "name": "watch-web",
+      "name": "monorepo",
+      "cwd": "[cwd]",
+      "execute": false,
+      "command": "pnpm "
+    },
+    {
+      "name": "renderer-web: watch",
       "cwd": "[cwd]/packages/renderer-web",
       "execute": false,
       "command": "pnpm run dev:watch"
     },
     {
-      "name": "build-pdf",
+      "name": "renderer-pdf: build",
       "cwd": "[cwd]/packages/renderer-pdf",
       "execute": false,
       "command": "pnpm run build"
