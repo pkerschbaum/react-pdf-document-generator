@@ -37,7 +37,7 @@ const browser = await puppeteer.launch({ headless: true });
 const page = await browser.newPage();
 await page.goto('http://localhost:3000', { waitUntil: 'networkidle0' });
 
-const pdf = await page.pdf(PAPER_FORMAT[options.paperFormat]);
+const pdf = await page.pdf({ printBackground: true, ...PAPER_FORMAT[options.paperFormat] });
 
 await page.close();
 await browser.close();
