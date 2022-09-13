@@ -16,11 +16,9 @@ const PATHS = {
 const PAPER_FORMAT: { [format in AvailableFormats]: PDFOptions } = {
   A4: {
     format: 'a4',
-    margin: { top: '27mm', right: '16mm', bottom: '27mm', left: '16mm' },
   },
   US_LETTER: {
     format: 'letter',
-    margin: { top: '1in', right: '1in', bottom: '1in', left: '1in' },
   },
 };
 
