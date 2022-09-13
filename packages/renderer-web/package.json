@@ -7,7 +7,7 @@
     "nuke": "pnpm run nuke:build && rimraf node_modules",
     "nuke:build": "rimraf dist *.tsbuildinfo",
     "dev:watch": "next dev",
-    "lint": "eslint --max-warnings 0",
+    "lint": "cross-env APPLY_HEAVY_RULES=true eslint --max-warnings 0",
     "lint:package": "pnpm run lint .",
     "lint:package:fix": "pnpm run lint:package --fix"
   },

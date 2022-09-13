@@ -18,3 +18,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+
+# @typescript-eslint rules requiring type information fetched from their homepage
+packages/eslint-typeinfo-rules.json

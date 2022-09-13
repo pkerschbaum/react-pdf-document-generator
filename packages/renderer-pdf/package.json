@@ -10,12 +10,12 @@
     "build": "pnpm run build:compile && pnpm run build:pdf",
     "build:compile": "tsc -p ./tsconfig.project.json",
     "build:pdf": "node ./dist/index.js --paper-format=A4",
-    "lint": "eslint --max-warnings 0",
+    "lint": "cross-env APPLY_HEAVY_RULES=true eslint --max-warnings 0",
     "lint:package": "pnpm run lint .",
     "lint:package:fix": "pnpm run lint:package --fix"
   },
   "dependencies": {
-    "@types/node": "^16.11.7",
+    "@types/node": "^18.7.17",
     "commander": "^9.4.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.26.0",
@@ -35,6 +35,6 @@
     "typescript-transform-paths": "^3.3.1"
   },
   "engines": {
-    "node": "^16.14.0"
+    "node": "^18.9.0"
   }
 }

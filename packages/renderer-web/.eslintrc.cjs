@@ -1,6 +1,8 @@
+// @ts-check
 const baseEslintConfig = require('../eslint-template.cjs');
+const { removeTypeInfoRules } = require('../eslint-typeinfo-rules-filter.cjs');
 
-module.exports = {
+module.exports = removeTypeInfoRules({
   ...baseEslintConfig,
   parserOptions: {
     ...baseEslintConfig.parserOptions,
@@ -34,4 +36,4 @@ module.exports = {
       version: 'detect',
     },
   },
-};
+});

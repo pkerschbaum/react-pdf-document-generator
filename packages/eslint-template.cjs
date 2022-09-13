@@ -1,9 +1,10 @@
+// @ts-check
+
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.project.json',
-    sourceType: 'module',
   },
   plugins: [
     /**
