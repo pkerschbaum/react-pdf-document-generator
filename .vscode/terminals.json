@@ -8,16 +8,16 @@
       "command": "pnpm "
     },
     {
-      "name": "renderer-web: watch",
-      "cwd": "[cwd]/packages/renderer-web",
+      "name": "monorepo: watch",
+      "cwd": "[cwd]",
       "execute": false,
-      "command": "pnpm run dev:watch"
+      "command": "pnpm run mr:dev:watch"
     },
     {
-      "name": "renderer-pdf: build",
+      "name": "renderer-pdf: create PDF",
       "cwd": "[cwd]/packages/renderer-pdf",
       "execute": false,
-      "command": "pnpm run build"
+      "command": "pnpm run create:pdf"
     }
   ]
 }

@@ -1,6 +1,9 @@
 {
   "references": [
     {
+      "path": "./config/tsconfig.project.json"
+    },
+    {
       "path": "./renderer-pdf/tsconfig.project.json"
     },
     {

@@ -1,9 +1,19 @@
 import * as styled from 'styled-components';
 
-const PAGE_MARGIN = {
-  A4: '27mm 16mm 27mm 16mm' /* typical A4 padding */,
-  US_LETTER: '0.5in' /* typical US_LETTER padding */,
+import { config, Margin, PaperFormat } from '@document-generator/config';
+
+const PAGE_MARGIN: { [format in Margin]: string } = {
+  [Margin.A4_STANDARD]: '27mm 16mm 27mm 16mm' /* typical A4 margin */,
+  [Margin.A4_NARROW]: '12.7mm',
+  [Margin.US_LETTER_STANDARD]: '0.5in' /* typical US_LETTER margin */,
 };
+const PAGE_WIDTH: { [format in PaperFormat]: string } = {
+  [PaperFormat.A4]: '21cm' /* width of A4 */,
+  [PaperFormat.US_LETTER]: '8.5in' /* width of US Letter */,
+};
+
+const activeMargin = PAGE_MARGIN[config.MARGIN];
+const activePageWidth = PAGE_WIDTH[config.PAPER_FORMAT];
 
 export const GlobalStyles = styled.createGlobalStyle`
   *:root {
@@ -13,7 +23,7 @@ export const GlobalStyles = styled.createGlobalStyle`
   }
 
   @page {
-    margin: ${PAGE_MARGIN.A4};
+    margin: ${activeMargin};
   }
 
   @media not print {
@@ -24,8 +34,8 @@ export const GlobalStyles = styled.createGlobalStyle`
 
     body {
       margin-inline: auto;
-      width: 21cm; /* width of A4 */
-      padding: ${PAGE_MARGIN.A4};
+      width: ${activePageWidth};
+      padding: ${activeMargin};
       background: white;
       box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
     }

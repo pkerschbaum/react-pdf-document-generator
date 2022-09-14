@@ -3,12 +3,14 @@
   "private": true,
   "scripts": {
     "prepare": "husky install && node ./packages/eslint-typeinfo-rules-fetch-and-store.mjs",
-    "mr:nuke": "pnpm --parallel run mr:nuke && pnpm run mr:nuke:node-modules",
+    "mr:nuke": "pnpm --parallel run nuke && pnpm run mr:nuke:node-modules",
     "mr:nuke:build": "pnpm --parallel run nuke:build",
     "mr:nuke:node-modules": "pnpm --parallel exec rimraf node_modules && rimraf node_modules",
     "mr:lint": "pnpm --parallel run lint:package",
     "mr:lint:fix": "pnpm --parallel run lint:package:fix",
-    "mr:format": "prettier --write --ignore-unknown ."
+    "mr:format": "prettier --write --ignore-unknown .",
+    "mr:build": "pnpm --recursive run build",
+    "mr:dev:watch": "pnpm run --parallel dev:watch"
   },
   "devDependencies": {
     "@types/jsdom": "^20.0.0",
