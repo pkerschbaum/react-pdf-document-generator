@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "postinstall": "ts-patch install -s",
+    "prepare": "ts-patch install -s",
     "nuke": "pnpm run nuke:build && rimraf node_modules",
     "nuke:build": "rimraf dist *.tsbuildinfo",
     "lint": "cross-env APPLY_HEAVY_RULES=true eslint --max-warnings 0",

@@ -4,18 +4,16 @@ importers:
 
   .:
     specifiers:
-      '@types/jsdom': ^20.0.0
+      '@pkerschbaum/typescript-eslint-rules-requiring-type-info': ^1.0.0
       cross-env: ^7.0.3
       husky: ^8.0.1
-      jsdom: ^20.0.0
       lint-staged: ^13.0.3
       prettier: ^2.7.1
       rimraf: ^3.0.2
     devDependencies:
-      '@types/jsdom': 20.0.0
+      '@pkerschbaum/typescript-eslint-rules-requiring-type-info': 1.0.0
       cross-env: 7.0.3
       husky: 8.0.1
-      jsdom: 20.0.0
       lint-staged: 13.0.3
       prettier: 2.7.1
       rimraf: 3.0.2
@@ -511,6 +509,19 @@ packages:
       tiny-invariant: 1.2.0
     dev: false
 
+  /@pkerschbaum/typescript-eslint-rules-requiring-type-info/1.0.0:
+    resolution: {integrity: sha512-aHXQDIg+BnqyIuC7Rc+DhN/yFUX2VcSmTuZk8Yv19zrRAzzgiJ1TP8zSi8tdvFgtdnQHQjhN5hbHdEYBSIb24A==}
+    dependencies:
+      axios: 0.27.2
+      jsdom: 20.0.0
+    transitivePeerDependencies:
+      - bufferutil
+      - canvas
+      - debug
+      - supports-color
+      - utf-8-validate
+    dev: true
+
   /@swc/helpers/0.4.3:
     resolution: {integrity: sha512-6JrF+fdUK2zbGpJIlN7G3v966PQjyx/dPt1T9km2wj+EUBqgrxCk3uX4Kct16MIm9gGxfKRcfax2hVf5jvlTzA==}
     dependencies:
@@ -527,14 +538,6 @@ packages:
     dependencies:
       '@types/react': 18.0.15
       hoist-non-react-statics: 3.3.2
-    dev: true
-
-  /@types/jsdom/20.0.0:
-    resolution: {integrity: sha512-YfAchFs0yM1QPDrLm2VHe+WHGtqms3NXnXAMolrgrVP6fgBHHXy1ozAbo/dFtPNtZC/m66bPiCTWYmqp1F14gA==}
-    dependencies:
-      '@types/node': 18.7.17
-      '@types/tough-cookie': 4.0.2
-      parse5: 7.1.1
     dev: true
 
   /@types/json-schema/7.0.11:
@@ -576,10 +579,6 @@ packages:
       '@types/hoist-non-react-statics': 3.3.1
       '@types/react': 18.0.15
       csstype: 3.1.0
-    dev: true
-
-  /@types/tough-cookie/4.0.2:
-    resolution: {integrity: sha512-Q5vtl1W5ue16D+nIaW8JWebSSraJVlK+EthKn7e7UcD4KWsaSJ8BqGPXNaPghgtcn/fhvrN17Tv8ksUsQpiplw==}
     dev: true
 
   /@types/yauzl/2.10.0:
@@ -890,6 +889,15 @@ packages:
   /axe-core/4.4.3:
     resolution: {integrity: sha512-32+ub6kkdhhWick/UjvEwRchgoetXqTK14INLqbGm5U2TzBkBNF3nQtLYm8ovxSkQWArjEQvftCKryjZaATu3w==}
     engines: {node: '>=4'}
+    dev: true
+
+  /axios/0.27.2:
+    resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
+    dependencies:
+      follow-redirects: 1.15.2
+      form-data: 4.0.0
+    transitivePeerDependencies:
+      - debug
     dev: true
 
   /axobject-query/2.2.0:
@@ -1810,6 +1818,16 @@ packages:
 
   /flatted/3.2.6:
     resolution: {integrity: sha512-0sQoMh9s0BYsm+12Huy/rkKxVu4R1+r96YX5cG44rHV0pQ6iC3Q+mkoMFaGWObMFYQxCVT+ssG1ksneA2MI9KQ==}
+    dev: true
+
+  /follow-redirects/1.15.2:
+    resolution: {integrity: sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
     dev: true
 
   /form-data/4.0.0:

@@ -1,8 +1,14 @@
 // @ts-check
 const baseEslintConfig = require('../eslint-template.cjs');
-const { removeTypeInfoRules } = require('../eslint-typeinfo-rules-filter.cjs');
+const { removeTypeInfoRules } = require('@pkerschbaum/typescript-eslint-rules-requiring-type-info');
 
-module.exports = removeTypeInfoRules({
+const applyHeavyRules = process.env.APPLY_HEAVY_RULES === 'true';
+console.log('process.env.APPLY_HEAVY_RULES set to ' + process.env.APPLY_HEAVY_RULES);
+
+/**
+ * @type {any}
+ */
+const eslintConfig = {
   ...baseEslintConfig,
   parserOptions: {
     ...baseEslintConfig.parserOptions,
@@ -36,4 +42,6 @@ module.exports = removeTypeInfoRules({
       version: 'detect',
     },
   },
-});
+};
+
+module.exports = applyHeavyRules ? eslintConfig : removeTypeInfoRules(eslintConfig);

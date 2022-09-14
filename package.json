@@ -2,7 +2,8 @@
   "name": "document-generator",
   "private": true,
   "scripts": {
-    "prepare": "husky install && node ./packages/eslint-typeinfo-rules-fetch-and-store.mjs",
+    "prepare": "husky install",
+    "postinstall": "node --input-type=module -e 'import { fetchAndStoreRules } from \"@pkerschbaum/typescript-eslint-rules-requiring-type-info\"; void fetchAndStoreRules();'",
     "mr:nuke": "pnpm --parallel run nuke && pnpm run mr:nuke:node-modules",
     "mr:nuke:build": "pnpm --parallel run nuke:build",
     "mr:nuke:node-modules": "pnpm --parallel exec rimraf node_modules && rimraf node_modules",
@@ -13,10 +14,9 @@
     "mr:dev:watch": "pnpm run --parallel dev:watch"
   },
   "devDependencies": {
-    "@types/jsdom": "^20.0.0",
+    "@pkerschbaum/typescript-eslint-rules-requiring-type-info": "^1.0.0",
     "cross-env": "^7.0.3",
     "husky": "^8.0.1",
-    "jsdom": "^20.0.0",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2"
