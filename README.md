@@ -30,20 +30,25 @@ pnpm i
 
 ## How to run
 
-1. **Start watcher for the web app:**
+1. **Run initial build of the monorepo:**
 
    ```sh
-   cd ./packages/renderer-web
-   pnpm run dev:watch
+   pnpm run mr:build
+   ```
+
+2. **Start watchers:**
+
+   ```sh
+   pnpm run mr:dev:watch
    ```
 
    This starts a [Next.js](https://nextjs.org/) web app that renders the document in the browser. The web app will automatically refresh on every change, giving a tight feedback loop while editing the document.
 
-1. **Generate PDF on demand:**
+3. **Generate PDF on demand:**
 
    ```sh
    cd ./packages/renderer-pdf
-   pnpm run build
+   pnpm run create:pdf
    ```
 
    This will regenerate [./packages/renderer-pdf/out/out.pdf](./packages/renderer-pdf/out/out.pdf) on file changes.
@@ -54,4 +59,4 @@ pnpm i
    > `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install ./google-chrome-stable_current_amd64.deb`  
    > See also this link for more information: <https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md>.
 
-The document which is rendered is located here: [./packages/renderer-web/src/documents/Document.tsx](./packages/documents/src/Document.tsx).
+The document which is rendered is located here: [./packages/renderer-web/src/documents/Document.tsx](./packages/renderer-web/src/documents/Document.tsx).
