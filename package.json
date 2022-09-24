@@ -4,14 +4,14 @@
   "scripts": {
     "prepare": "husky install",
     "postinstall": "node --input-type=module -e 'import { fetchAndStoreRules } from \"@pkerschbaum/typescript-eslint-rules-requiring-type-info\"; void fetchAndStoreRules();'",
-    "mr:nuke": "pnpm --parallel run nuke && pnpm run mr:nuke:node-modules",
-    "mr:nuke:build": "pnpm --parallel run nuke:build",
+    "mr:nuke": "pnpm --parallel run pkg:nuke && pnpm run mr:nuke:node-modules",
+    "mr:nuke:artifacts": "pnpm --parallel run pkg:nuke:artifacts",
     "mr:nuke:node-modules": "pnpm --parallel exec rimraf node_modules && rimraf node_modules",
-    "mr:lint": "pnpm --parallel run lint:package",
-    "mr:lint:fix": "pnpm --parallel run lint:package:fix",
+    "mr:lint": "pnpm --parallel run pkg:lint",
+    "mr:lint:fix": "pnpm --parallel run pkg:lint:fix",
     "mr:format": "prettier --write --ignore-unknown .",
-    "mr:build": "pnpm --recursive run build",
-    "mr:dev:watch": "pnpm run --parallel dev:watch"
+    "mr:build": "pnpm --recursive run pkg:build",
+    "mr:dev:watch": "pnpm run --parallel pkg:dev:watch"
   },
   "devDependencies": {
     "@pkerschbaum/typescript-eslint-rules-requiring-type-info": "^1.0.0",

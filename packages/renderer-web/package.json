@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "prepare": "ts-patch install -s",
-    "nuke": "pnpm run nuke:build && rimraf node_modules",
-    "nuke:build": "rimraf dist *.tsbuildinfo",
+    "pkg:nuke": "pnpm run pkg:nuke:artifacts && rimraf node_modules",
+    "pkg:nuke:artifacts": "rimraf dist *.tsbuildinfo",
     "lint": "cross-env APPLY_HEAVY_RULES=true eslint --max-warnings 0",
-    "lint:package": "pnpm run lint .",
-    "lint:package:fix": "pnpm run lint:package --fix",
-    "dev:watch": "next dev"
+    "pkg:lint": "pnpm run lint .",
+    "pkg:lint:fix": "pnpm run pkg:lint --fix",
+    "pkg:dev:watch": "next dev"
   },
   "dependencies": {
     "@document-generator/config": "workspace:1.0.0",
