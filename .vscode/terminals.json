@@ -2,16 +2,16 @@
   "autorun": true,
   "terminals": [
     {
-      "name": "monorepo",
+      "name": "workspace",
       "cwd": "[cwd]",
       "execute": false,
       "command": "pnpm "
     },
     {
-      "name": "monorepo: watch",
+      "name": "workspace: watch",
       "cwd": "[cwd]",
       "execute": false,
-      "command": "pnpm run mr:dev:watch"
+      "command": "pnpm run w:dev:watch"
     },
     {
       "name": "renderer-pdf: create PDF",
