@@ -1,4 +1,4 @@
-import { Margin, PaperFormat } from '#/constants.js';
+import { Margin, PaperFormat } from '#pkg/constants.js';
 
 export const config = {
   PAPER_FORMAT: PaperFormat.A4,

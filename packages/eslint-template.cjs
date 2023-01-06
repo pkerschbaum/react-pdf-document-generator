@@ -67,7 +67,7 @@ module.exports = {
             position: 'after',
           },
           {
-            pattern: '#/**',
+            pattern: '#pkg/**',
             group: 'parent',
           },
         ],

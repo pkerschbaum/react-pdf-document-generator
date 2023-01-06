@@ -1,2 +1,2 @@
-export * from '#/config.js';
-export * from '#/constants.js';
+export * from '#pkg/config.js';
+export * from '#pkg/constants.js';

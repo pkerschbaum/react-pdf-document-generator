@@ -3,9 +3,6 @@
   "compilerOptions": {
     /* Modules */
     "module": "node16",
-    "paths": {
-      "#/*": ["./src/*"]
-    },
     "rootDir": "./src",
 
     /* Emit */

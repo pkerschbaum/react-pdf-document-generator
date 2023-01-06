@@ -6,13 +6,13 @@
     "jsx": "preserve",
 
     /* Modules */
+    "baseUrl": ".",
     "module": "esnext",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "baseUrl": ".",
     "paths": {
-      "#/*": ["./src/*"]
+      "#pkg/*": ["./src/*"]
     },
+    "resolveJsonModule": true,
 
     /* JavaScript Support */
     "allowJs": true,
