@@ -2,9 +2,6 @@
   "name": "@document-generator/renderer-web",
   "version": "1.0.0",
   "private": true,
-  "imports": {
-    "#pkg/*": "./dist/*"
-  },
   "scripts": {
     "pkg:nuke": "pnpm run pkg:nuke:artifacts && rimraf node_modules",
     "pkg:nuke:artifacts": "rimraf dist *.tsbuildinfo",
