@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "lint": "cross-env APPLY_HEAVY_RULES=true eslint --max-warnings 0",
+    "build:compile": "tsc -p ./tsconfig.project.json",
     "pkg:nuke": "pnpm run pkg:nuke:artifacts && rimraf node_modules",
     "pkg:nuke:artifacts": "rimraf dist *.tsbuildinfo",
-    "lint": "cross-env APPLY_HEAVY_RULES=true eslint --max-warnings 0",
     "pkg:lint": "pnpm run lint .",
     "pkg:lint:fix": "pnpm run pkg:lint --fix",
+    "pkg:build": "pnpm run build:compile",
     "pkg:dev:watch": "next dev"
   },
   "dependencies": {

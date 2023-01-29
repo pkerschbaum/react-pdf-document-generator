@@ -7,15 +7,15 @@
     "#pkg/*": "./dist/*"
   },
   "scripts": {
+    "lint": "cross-env APPLY_HEAVY_RULES=true eslint --max-warnings 0",
+    "build:compile": "tsc -p ./tsconfig.project.json",
+    "create:pdf": "node ./dist/index.js",
     "pkg:nuke": "pnpm run pkg:nuke:artifacts && rimraf node_modules",
     "pkg:nuke:artifacts": "rimraf dist *.tsbuildinfo",
-    "lint": "cross-env APPLY_HEAVY_RULES=true eslint --max-warnings 0",
     "pkg:lint": "pnpm run lint .",
     "pkg:lint:fix": "pnpm run pkg:lint --fix",
-    "build:compile": "tsc -p ./tsconfig.project.json",
     "pkg:build": "pnpm run build:compile",
-    "pkg:dev:watch": "tsc -p ./tsconfig.project.json -w --preserveWatchOutput",
-    "create:pdf": "node ./dist/index.js"
+    "pkg:dev:watch": "tsc -p ./tsconfig.project.json -w --preserveWatchOutput"
   },
   "dependencies": {
     "@document-generator/config": "workspace:1.0.0",
