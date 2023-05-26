@@ -43,6 +43,7 @@ module.exports = {
     'prefer-template': 'error',
     'require-atomic-updates': 'error',
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
+    'import/namespace': 'off',
     'import/newline-after-import': 'error',
     'import/no-absolute-path': 'error',
     'import/no-cycle': 'error',

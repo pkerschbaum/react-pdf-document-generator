@@ -245,11 +245,11 @@ const InvoiceRecordsTd = styled.td`
   }
   ${InvoiceRecordsTotalsRow} > &:nth-of-type(2),
   ${InvoiceRecordsTotalsRow} > &:nth-of-type(3) {
-    text-align: right;
     border-bottom-width: 0;
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 1px;
+    text-align: right;
   }
 `;
 
@@ -262,6 +262,6 @@ const GreetingSection = styled.div`
     margin-top: var(--spacing-sm);
   }
   & > div:nth-of-type(2) {
-    margin-top: var(--spacing-md);
+    margin-top: var(--spacing-sm);
   }
 `;
