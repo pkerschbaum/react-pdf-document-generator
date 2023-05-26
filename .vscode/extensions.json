@@ -4,7 +4,6 @@
 
   // List of extensions which should be recommended for users of this workspace.
   "recommendations": [
-    "fabiospampinato.vscode-terminals",
     "esbenp.prettier-vscode",
     "styled-components.vscode-styled-components",
     "dbaeumer.vscode-eslint"
