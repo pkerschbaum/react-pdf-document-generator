@@ -18,7 +18,10 @@
     "allowJs": true,
 
     /* Emit */
-    "noEmit": true
+    "noEmit": true,
+
+    /* Editor Support */
+    "plugins": [{ "name": "next" }]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["next-env.d.ts", "dist/types/**/*.ts", "**/*.ts", "**/*.tsx"]
 }

@@ -1,24 +1,8 @@
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
-import * as React from 'react';
-import * as styled from 'styled-components';
+'use client';
 
-const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
-  return (
-    <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      </Head>
+import { createGlobalStyle } from 'styled-components';
 
-      <ResetStyles />
-      <GlobalStyles />
-
-      <Component {...pageProps} />
-    </>
-  );
-};
-
-const ResetStyles = styled.createGlobalStyle`
+export const ResetStyles = createGlobalStyle`
   /* taken from https://www.joshwcomeau.com/css/custom-css-reset/ */
 
   /*
@@ -91,10 +75,8 @@ const ResetStyles = styled.createGlobalStyle`
   }
 `;
 
-const GlobalStyles = styled.createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
   *:root {
     font-family: 'Open Sans', sans-serif;
   }
 `;
-
-export default MyApp;

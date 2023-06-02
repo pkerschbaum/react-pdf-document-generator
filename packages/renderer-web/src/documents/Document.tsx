@@ -1,6 +1,8 @@
+'use client';
+
 import dayjs from 'dayjs';
 import type React from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { GlobalStyles } from '#pkg/documents/Document.global-style';
 import { formatter } from '#pkg/formatter';
