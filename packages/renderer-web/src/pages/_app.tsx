@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import * as React from 'react';
-import * as styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
@@ -18,7 +18,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   );
 };
 
-const ResetStyles = styled.createGlobalStyle`
+const ResetStyles = createGlobalStyle`
   /* taken from https://www.joshwcomeau.com/css/custom-css-reset/ */
 
   /*
@@ -91,7 +91,7 @@ const ResetStyles = styled.createGlobalStyle`
   }
 `;
 
-const GlobalStyles = styled.createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
   *:root {
     font-family: 'Open Sans', sans-serif;
   }

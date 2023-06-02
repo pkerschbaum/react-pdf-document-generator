@@ -1,4 +1,4 @@
-import * as styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 import { config, Margin, PaperFormat } from '@document-generator/config';
 
@@ -15,7 +15,7 @@ const PAGE_WIDTH: { [format in PaperFormat]: string } = {
 const activeMargin = PAGE_MARGIN[config.MARGIN];
 const activePageWidth = PAGE_WIDTH[config.PAPER_FORMAT];
 
-export const GlobalStyles = styled.createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
   *:root {
     --spacing-xs: 16px;
     --spacing-sm: 32px;
