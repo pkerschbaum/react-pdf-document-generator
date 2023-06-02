@@ -1,3 +1,5 @@
+'use client';
+
 import { createGlobalStyle } from 'styled-components';
 
 import { config, Margin, PaperFormat } from '@document-generator/config';
