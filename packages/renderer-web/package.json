@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "lint": "cross-env APPLY_HEAVY_RULES=true eslint --max-warnings 0",
     "build:compile": "tsc -p ./tsconfig.project.json",
-    "pkg:nuke": "pnpm run pkg:nuke:artifacts && rimraf node_modules",
-    "pkg:nuke:artifacts": "rimraf dist *.tsbuildinfo",
-    "pkg:lint": "pnpm run lint .",
-    "pkg:lint:fix": "pnpm run pkg:lint --fix",
-    "pkg:build": "pnpm run build:compile",
-    "pkg:dev:watch": "next dev"
+    "nuke": "pnpm run nuke:artifacts && del-cli node_modules",
+    "nuke:artifacts": "del-cli dist \"*.tsbuildinfo\"",
+    "lint": "pnpm run lint:file .",
+    "lint:file": "cross-env APPLY_HEAVY_RULES=true eslint --max-warnings 0",
+    "lint:fix": "pnpm run lint --fix",
+    "build": "pnpm run build:compile",
+    "dev": "next dev"
   },
   "dependencies": {
     "@document-generator/config": "workspace:*",
@@ -23,6 +23,8 @@
     "styled-components": "6.0.0-rc.2-4007"
   },
   "devDependencies": {
+    "@document-generator/config-eslint": "workspace:*",
+    "@document-generator/config-typescript": "workspace:*",
     "@next/env": "^13.4.4",
     "@types/react": "^18.2.8",
     "@types/react-dom": "^18.2.4",

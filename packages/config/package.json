@@ -16,16 +16,18 @@
   },
   "scripts": {
     "prepare": "ts-patch install -s",
-    "lint": "cross-env APPLY_HEAVY_RULES=true eslint --max-warnings 0",
     "build:compile": "tsc -p ./tsconfig.project.json",
-    "pkg:nuke": "pnpm run pkg:nuke:artifacts && rimraf node_modules",
-    "pkg:nuke:artifacts": "rimraf dist *.tsbuildinfo",
-    "pkg:lint": "pnpm run lint .",
-    "pkg:lint:fix": "pnpm run pkg:lint --fix",
-    "pkg:build": "pnpm run build:compile",
-    "pkg:dev:watch": "tsc -p ./tsconfig.project.json -w --preserveWatchOutput"
+    "nuke": "pnpm run nuke:artifacts && del-cli node_modules",
+    "nuke:artifacts": "del-cli dist \"*.tsbuildinfo\"",
+    "lint": "pnpm run lint:file .",
+    "lint:file": "cross-env APPLY_HEAVY_RULES=true eslint --max-warnings 0",
+    "lint:fix": "pnpm run lint --fix",
+    "build": "pnpm run build:compile",
+    "dev": "tsc -p ./tsconfig.project.json -w --preserveWatchOutput"
   },
   "devDependencies": {
+    "@document-generator/config-eslint": "workspace:*",
+    "@document-generator/config-typescript": "workspace:*",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
     "eslint": "^8.41.0",

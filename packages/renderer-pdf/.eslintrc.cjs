@@ -1,5 +1,5 @@
 // @ts-check
-const baseEslintConfig = require('../eslint-template.cjs');
+const baseEslintConfig = require('@document-generator/config-eslint/eslint.cjs');
 const { removeTypeInfoRules } = require('@pkerschbaum/typescript-eslint-rules-requiring-type-info');
 
 const applyHeavyRules = process.env.APPLY_HEAVY_RULES === 'true';

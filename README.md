@@ -1,4 +1,9 @@
-# react-pdf-document-renderer
+# react-pdf-document-renderer <!-- omit in toc -->
+
+- [Motivation](#motivation)
+- [Prerequisites](#prerequisites)
+- [Setup](#setup)
+- [How to run](#how-to-run)
 
 Create PDF documents/reports using [React](https://github.com/facebook/react) and [styled-components](https://styled-components.com/).
 
@@ -33,13 +38,13 @@ pnpm i
 1. **Run initial build of the workspace:**
 
    ```sh
-   pnpm run w:build
+   pnpm run build
    ```
 
 2. **Start watchers:**
 
    ```sh
-   pnpm run w:dev:watch
+   pnpm run dev
    ```
 
    This starts a [Next.js](https://nextjs.org/) web app that renders the document in the browser. The web app will automatically refresh on every change, giving a tight feedback loop while editing the document.

@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.workspace.json",
+  "extends": "@document-generator/config-typescript/tsconfig.json",
   "compilerOptions": {
     /* Language and Environment */
     "lib": ["dom", "dom.iterable", "esnext"],

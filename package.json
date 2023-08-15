@@ -4,24 +4,24 @@
   "scripts": {
     "prepare": "husky install",
     "postinstall": "node --input-type=module -e 'import { fetchAndStoreRules } from \"@pkerschbaum/typescript-eslint-rules-requiring-type-info\"; void fetchAndStoreRules();'",
-    "w:nuke": "pnpm --parallel run pkg:nuke && pnpm run w:nuke:node-modules",
-    "w:nuke:artifacts": "pnpm --parallel run pkg:nuke:artifacts",
-    "w:nuke:node-modules": "pnpm --parallel exec rimraf node_modules && rimraf node_modules",
-    "w:lint": "pnpm --parallel run pkg:lint",
-    "w:lint:fix": "pnpm --parallel run pkg:lint:fix",
-    "w:format": "prettier --write --ignore-unknown .",
-    "w:build": "pnpm --recursive run pkg:build",
-    "w:dev:watch": "pnpm run --parallel pkg:dev:watch"
+    "nuke": "pnpm --parallel run nuke && pnpm run nuke:artifacts && pnpm run nuke:node-modules",
+    "nuke:artifacts": "pnpm --parallel run nuke:artifacts",
+    "nuke:node-modules": "del-cli \"**/node_modules\"",
+    "lint": "pnpm --parallel run lint",
+    "lint:fix": "pnpm --parallel run lint:fix",
+    "format": "prettier --write --ignore-unknown .",
+    "build": "pnpm --recursive run build",
+    "dev": "pnpm run --parallel dev"
   },
   "devDependencies": {
     "@pkerschbaum/typescript-eslint-rules-requiring-type-info": "^1.0.0",
     "cross-env": "^7.0.3",
+    "del-cli": "^5.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
-    "prettier": "^2.8.3",
-    "rimraf": "^5.0.1"
+    "prettier": "^2.8.3"
   },
   "engines": {
-    "pnpm": "8.1.1"
+    "pnpm": "8.6.7"
   }
 }
