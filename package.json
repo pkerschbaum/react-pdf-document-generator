@@ -23,5 +23,10 @@
   },
   "engines": {
     "pnpm": "8.6.7"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "typescript@4.9.5": "patches/typescript@4.9.5.patch"
+    }
   }
 }
