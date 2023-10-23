@@ -6,12 +6,13 @@
     "postinstall": "node --input-type=module -e 'import { fetchAndStoreRules } from \"@pkerschbaum/typescript-eslint-rules-requiring-type-info\"; void fetchAndStoreRules();'",
     "nuke": "pnpm --parallel run nuke && pnpm run nuke:artifacts && pnpm run nuke:node-modules",
     "nuke:artifacts": "pnpm --parallel run nuke:artifacts",
-    "nuke:node-modules": "del-cli \"**/node_modules\"",
+    "nuke:node-modules": "del-cli --dot=true \"**/node_modules\"",
     "lint": "pnpm --parallel run lint",
     "lint:fix": "pnpm --parallel run lint:fix",
     "format": "prettier --write --ignore-unknown .",
     "build": "pnpm --recursive run build",
-    "dev": "pnpm run --parallel dev"
+    "dev": "pnpm run --parallel dev",
+    "create-pnpm-patch-via-ts-patch": "pnpm --package=\"@pkerschbaum/pkg-management@1.1.1\" dlx create-pnpm-patch-via-ts-patch --typescript-version=5.2.2"
   },
   "devDependencies": {
     "@pkerschbaum/typescript-eslint-rules-requiring-type-info": "^1.0.0",
@@ -21,8 +22,10 @@
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.3"
   },
+  "packageManager": "pnpm@8.9.2",
   "engines": {
-    "pnpm": "8.6.7"
+    "pnpm": "8.9.2",
+    "npm": "0.0.0"
   },
   "pnpm": {
     "patchedDependencies": {

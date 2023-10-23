@@ -9,8 +9,8 @@
   "scripts": {
     "build:compile": "tsc -p ./tsconfig.project.json",
     "create:pdf": "node ./dist/index.js",
-    "nuke": "pnpm run nuke:artifacts && del-cli node_modules",
-    "nuke:artifacts": "del-cli dist \"*.tsbuildinfo\"",
+    "nuke": "pnpm run nuke:artifacts && del-cli --dot=true node_modules",
+    "nuke:artifacts": "del-cli --dot=true dist \"*.tsbuildinfo\"",
     "lint": "pnpm run lint:file .",
     "lint:file": "cross-env APPLY_HEAVY_RULES=true eslint --max-warnings 0",
     "lint:fix": "pnpm run lint --fix",
