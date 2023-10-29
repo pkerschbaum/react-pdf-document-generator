@@ -2,34 +2,34 @@
   "name": "document-generator",
   "private": true,
   "scripts": {
-    "prepare": "husky install",
-    "postinstall": "node --input-type=module -e 'import { fetchAndStoreRules } from \"@pkerschbaum/typescript-eslint-rules-requiring-type-info\"; void fetchAndStoreRules();'",
+    "build": "pnpm --recursive run build",
+    "create-pnpm-patch-via-ts-patch": "pnpm --package=\"@pkerschbaum/pkg-management@1.1.1\" dlx create-pnpm-patch-via-ts-patch --typescript-version=5.2.2",
+    "dev": "pnpm run --parallel dev",
+    "format": "prettier --write --ignore-unknown .",
+    "lint": "pnpm --parallel run lint",
+    "lint:fix": "pnpm --parallel run lint:fix",
     "nuke": "pnpm --parallel run nuke && pnpm run nuke:artifacts && pnpm run nuke:node-modules",
     "nuke:artifacts": "pnpm --parallel run nuke:artifacts",
     "nuke:node-modules": "del-cli --dot=true \"**/node_modules\"",
-    "lint": "pnpm --parallel run lint",
-    "lint:fix": "pnpm --parallel run lint:fix",
-    "format": "prettier --write --ignore-unknown .",
-    "build": "pnpm --recursive run build",
-    "dev": "pnpm run --parallel dev",
-    "create-pnpm-patch-via-ts-patch": "pnpm --package=\"@pkerschbaum/pkg-management@1.1.1\" dlx create-pnpm-patch-via-ts-patch --typescript-version=5.2.2"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@pkerschbaum/typescript-eslint-rules-requiring-type-info": "^1.0.0",
     "cross-env": "^7.0.3",
-    "del-cli": "^5.0.0",
+    "del-cli": "^5.1.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
-    "prettier": "^2.8.3"
+    "lint-staged": "^15.0.2",
+    "prettier": "^3.0.3",
+    "prettier-plugin-packagejson": "^2.4.6"
   },
   "packageManager": "pnpm@8.9.2",
   "engines": {
-    "pnpm": "8.9.2",
-    "npm": "0.0.0"
+    "npm": "0.0.0",
+    "pnpm": "8.9.2"
   },
   "pnpm": {
     "patchedDependencies": {
-      "typescript@4.9.5": "patches/typescript@4.9.5.patch"
+      "typescript@5.2.2": "patches/typescript@5.2.2.patch"
     }
   }
 }

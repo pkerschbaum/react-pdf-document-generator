@@ -2,6 +2,6 @@
   "name": "@document-generator/config-typescript",
   "private": true,
   "devDependencies": {
-    "typescript": "^4.9.5"
+    "typescript": "^5.2.2"
   }
 }
