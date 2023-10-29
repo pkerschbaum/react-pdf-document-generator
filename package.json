@@ -2,25 +2,29 @@
   "name": "document-generator",
   "private": true,
   "scripts": {
-    "build": "pnpm --recursive run build",
+    "build": "superturbo build",
     "create-pnpm-patch-via-ts-patch": "pnpm --package=\"@pkerschbaum/pkg-management@1.1.1\" dlx create-pnpm-patch-via-ts-patch --typescript-version=5.2.2",
     "dev": "pnpm run --parallel dev",
     "format": "prettier --write --ignore-unknown .",
-    "lint": "pnpm --parallel run lint",
-    "lint:fix": "pnpm --parallel run lint:fix",
-    "nuke": "pnpm --parallel run nuke && pnpm run nuke:artifacts && pnpm run nuke:node-modules",
+    "lint": "superturbo lint",
+    "lint:fix": "superturbo lint:fix",
+    "nuke": "pnpm --parallel run nuke && pnpm run nuke:artifacts && pnpm run nuke:compute-cache && pnpm run nuke:node-modules",
     "nuke:artifacts": "pnpm --parallel run nuke:artifacts",
+    "nuke:compute-cache": "del-cli --dot=true \"*/**/.turbo\"",
     "nuke:node-modules": "del-cli --dot=true \"**/node_modules\"",
-    "prepare": "husky install"
+    "prepare": "node --eval \"process.exit(process.env.CI === 'true' ? 0 : -1)\" || husky install"
   },
   "devDependencies": {
+    "@document-generator/config-eslint": "workspace:*",
+    "@document-generator/config-typescript": "workspace:*",
+    "@document-generator/superturbo": "workspace:*",
     "@pkerschbaum/typescript-eslint-rules-requiring-type-info": "^1.0.0",
     "cross-env": "^7.0.3",
     "del-cli": "^5.1.0",
     "husky": "^8.0.3",
-    "lint-staged": "^15.0.2",
     "prettier": "^3.0.3",
-    "prettier-plugin-packagejson": "^2.4.6"
+    "prettier-plugin-packagejson": "^2.4.6",
+    "turbo": "^1.10.14"
   },
   "packageManager": "pnpm@8.9.2",
   "engines": {

@@ -1,6 +1,11 @@
 # dependencies
-**/node_modules
-
-**/dist
-
 pnpm-lock.yaml
+
+# build artifacts
+**/dist
+**/dist-tsc
+**/public
+
+# coverage
+**/.nyc_output
+**/coverage

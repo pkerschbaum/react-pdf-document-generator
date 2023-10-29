@@ -22,8 +22,6 @@
     "puppeteer": "^21.4.0"
   },
   "devDependencies": {
-    "@document-generator/config-eslint": "workspace:*",
-    "@document-generator/config-typescript": "workspace:*",
     "@types/node": "^20.8.7",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
@@ -31,7 +29,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-n": "^16.2.0",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-regexp": "^2.1.1",
     "nodemon": "^3.0.1",

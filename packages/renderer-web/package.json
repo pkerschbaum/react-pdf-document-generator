@@ -23,8 +23,6 @@
     "styled-components": "6.1.0"
   },
   "devDependencies": {
-    "@document-generator/config-eslint": "workspace:*",
-    "@document-generator/config-typescript": "workspace:*",
     "@next/env": "^13.5.6",
     "@types/react": "^18.2.31",
     "@types/react-dom": "^18.2.14",
@@ -35,7 +33,7 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-n": "^16.2.0",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
