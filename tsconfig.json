@@ -1,13 +1,8 @@
 {
   "references": [
-    {
-      "path": "./packages/config/tsconfig.project.json"
-    },
-    {
-      "path": "./packages/renderer-pdf/tsconfig.project.json"
-    },
-    {
-      "path": "./packages/renderer-web/tsconfig.project.json"
-    }
+    { "path": "./packages/config/tsconfig.project.json" },
+    { "path": "./packages/renderer-pdf/tsconfig.project.json" },
+    { "path": "./packages/renderer-web/tsconfig.project.json" },
+    { "path": "./platform/superturbo/tsconfig.project.json" }
   ]
 }

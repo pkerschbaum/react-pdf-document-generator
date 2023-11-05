@@ -12,12 +12,13 @@
     "nuke:artifacts": "pnpm --parallel run nuke:artifacts",
     "nuke:compute-cache": "del-cli --dot=true \"*/**/.turbo\"",
     "nuke:node-modules": "del-cli --dot=true \"**/node_modules\"",
-    "prepare": "node --eval \"process.exit(process.env.CI === 'true' ? 0 : -1)\" || husky install"
+    "prepare": "node --eval \"process.exit(process.env.CI === 'true' ? 0 : -1)\" || (husky install && pnpm exec add-all-tsconfigs-as-project-references --monorepo-path=.)"
   },
   "devDependencies": {
     "@document-generator/config-eslint": "workspace:*",
     "@document-generator/config-typescript": "workspace:*",
     "@document-generator/superturbo": "workspace:*",
+    "@pkerschbaum/pkg-management": "^1.2.0",
     "@pkerschbaum/typescript-eslint-rules-requiring-type-info": "^1.0.0",
     "cross-env": "^7.0.3",
     "del-cli": "^5.1.0",
