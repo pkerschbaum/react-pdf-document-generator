@@ -2,6 +2,8 @@
   "name": "@document-generator/config-eslint",
   "private": true,
   "devDependencies": {
+    "eslint-plugin-code-import-patterns": "^3.0.1",
+    "eslint-plugin-unicorn": "^49.0.0",
     "typescript": "^5.2.2"
   }
 }

@@ -9,9 +9,11 @@ type StyledComponentsRegistryProps = {
   children: React.ReactNode;
 };
 
-export default function StyledComponentsRegistry({ children }: StyledComponentsRegistryProps) {
-  // Only create stylesheet once with lazy initial state
-  // x-ref: https://reactjs.org/docs/hooks-reference.html#lazy-initial-state
+export function StyledComponentsRegistry({ children }: StyledComponentsRegistryProps) {
+  /*
+   * Only create stylesheet once with lazy initial state
+   * x-ref: https://reactjs.org/docs/hooks-reference.html#lazy-initial-state
+   */
   const [styledComponentsStyleSheet] = React.useState(() => new ServerStyleSheet());
 
   useServerInsertedHTML(() => {

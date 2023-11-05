@@ -31,8 +31,9 @@ export const formatter = {
           countOfDecimals = 2;
           break;
         }
-        default:
+        default: {
           assertIsUnreachable(options.format);
+        }
       }
     }
     if (options.countOfDecimals !== undefined) {
@@ -45,10 +46,12 @@ export const formatter = {
       style: 'currency',
       currency: 'EUR',
     });
-    // style 'currency' and currency 'EUR' must be given to "toLocaleString" in order to have
-    // a dot (.) as thousands separator (for locale de-AT). But it also adds a € in front of the
-    // number, we want that at the end. So we strip that off
-    result = localeString.substring(2);
+    /*
+     * style 'currency' and currency 'EUR' must be given to "toLocaleString" in order to have
+     * a dot (.) as thousands separator (for locale de-AT). But it also adds a € in front of the
+     * number, we want that at the end. So we strip that off
+     */
+    result = localeString.slice(2);
 
     if (options.format !== undefined) {
       switch (options.format) {
@@ -61,8 +64,9 @@ export const formatter = {
           result = `${result}%`;
           break;
         }
-        default:
+        default: {
           assertIsUnreachable(options.format);
+        }
       }
     }
 

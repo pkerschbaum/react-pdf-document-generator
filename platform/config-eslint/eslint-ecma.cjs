@@ -1,10 +1,9 @@
-// @ts-check
-
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.project.json',
+    sourceType: 'module',
   },
   plugins: [
     /**
@@ -17,6 +16,7 @@ module.exports = {
     '@typescript-eslint/eslint-plugin',
     'n',
     'regexp',
+    'code-import-patterns',
   ],
   extends: [
     'eslint:recommended',
@@ -27,12 +27,14 @@ module.exports = {
     'plugin:import/recommended',
     'plugin:import/typescript',
     'plugin:n/recommended',
+    'plugin:unicorn/recommended',
     'plugin:eslint-comments/recommended',
     'prettier',
   ],
-  ignorePatterns: ['.eslintrc.cjs', 'eslint.cjs', 'dist/**/*'],
+  ignorePatterns: ['.eslintrc.cjs', 'dist/**/*'],
   rules: {
     curly: 'error',
+    'multiline-comment-style': ['error', 'starred-block'],
     'no-console': 'error',
     'no-constant-condition': ['error', { checkLoops: false }],
     'no-promise-executor-return': 'error',
@@ -42,8 +44,25 @@ module.exports = {
     'prefer-promise-reject-errors': 'error',
     'prefer-template': 'error',
     'require-atomic-updates': 'error',
+    'code-import-patterns/patterns': [
+      'error',
+      {
+        zones: [
+          {
+            target: /.+/,
+            forbiddenPatterns: [
+              {
+                // forbid relative imports except for .png, .jpg, .svg, .css
+                pattern: /^\.(?!.+png$|.+jpg$|.+svg$|.+css$)/,
+                errorMessage:
+                  'Use absolute paths (beginning with "#pkg/") instead of relative paths.',
+              },
+            ],
+          },
+        ],
+      },
+    ],
     'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
-    'import/namespace': 'off',
     'import/newline-after-import': 'error',
     'import/no-absolute-path': 'error',
     'import/no-cycle': 'error',
@@ -52,8 +71,10 @@ module.exports = {
     'import/no-dynamic-require': 'error',
     'import/no-mutable-exports': 'error',
     'import/no-self-import': 'error',
+    // disable "import/no-unresolved" --> covered by TypeScript
     'import/no-unresolved': 'off',
     'import/no-useless-path-segments': 'error',
+    // "import/order": external dependencies first, workspace dependencies second, internal stuff third
     'import/order': [
       'error',
       {
@@ -76,14 +97,36 @@ module.exports = {
     ],
     'n/handle-callback-err': 'error',
     'n/no-callback-literal': 'error',
+    // disable "n/no-extraneous-import" --> thanks to "isolated mode" of node_modules of pnpm and "public-hoist-pattern" being disabled of this monorepo, there is no possibilty for extraneous imports
     'n/no-extraneous-import': 'off',
+    // disable "n/no-missing-import" and "n/no-missing-require" --> covered by TypeScript
     'n/no-missing-import': 'off',
+    'n/no-missing-require': 'off',
     'n/no-process-env': 'error',
     'n/no-sync': 'error',
-    'n/no-unpublished-import': 'off',
+    // disable "n/no-unpublished-import" and "n/no-unpublished-require" --> wrong positive for "@vercel/analytics" for whatever reason
+    'n/no-unpublished-import': ['error', { ignoreTypeImport: true }],
     'n/no-unpublished-require': 'off',
+    // disable "n/no-unsupported-features/es-builtins" --> covered by TypeScript
+    'n/no-unsupported-features/es-builtins': 'off',
+    // disable "n/no-unsupported-features/es-syntax" --> covered by TypeScript
     'n/no-unsupported-features/es-syntax': 'off',
+    // disable "n/no-unsupported-features/node-builtins" --> covered by TypeScript
     'n/no-unsupported-features/node-builtins': 'off',
+    'unicorn/better-regex': 'off',
+    'unicorn/consistent-destructuring': 'off',
+    'unicorn/consistent-function-scoping': 'off',
+    'unicorn/filename-case': 'off',
+    'unicorn/no-array-callback-reference': 'off',
+    'unicorn/no-await-expression-member': 'off',
+    'unicorn/no-negated-condition': 'off',
+    'unicorn/no-null': 'off',
+    'unicorn/no-useless-undefined': 'off',
+    'unicorn/prefer-dom-node-dataset': 'off',
+    'unicorn/prefer-module': 'off',
+    'unicorn/prefer-string-replace-all': 'off',
+    'unicorn/prefer-top-level-await': 'off',
+    'unicorn/prevent-abbreviations': 'off',
     '@typescript-eslint/ban-types': [
       'error',
       {
@@ -98,11 +141,14 @@ module.exports = {
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     '@typescript-eslint/explicit-member-accessibility': [
       'error',
-      { overrides: { constructors: 'off' } },
+      {
+        accessibility: 'explicit',
+        overrides: { constructors: 'off' },
+      },
     ],
     '@typescript-eslint/method-signature-style': 'error',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-base-to-string': ['error', { ignoredTypeNames: ['Error'] }],
+    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/no-base-to-string': ['error', { ignoredTypeNames: ['Error', 'Moment'] }],
     '@typescript-eslint/no-confusing-non-null-assertion': 'error',
     '@typescript-eslint/no-duplicate-enum-values': 'error',
     '@typescript-eslint/no-floating-promises': 'error',
@@ -118,6 +164,7 @@ module.exports = {
         allowDeclarations: true,
       },
     ],
+    '@typescript-eslint/no-redundant-type-constituents': 'off',
     '@typescript-eslint/no-require-imports': 'error',
     '@typescript-eslint/no-throw-literal': 'error',
     '@typescript-eslint/no-unnecessary-condition': ['error', { allowConstantLoopConditions: true }],
@@ -147,7 +194,6 @@ module.exports = {
     '@typescript-eslint/prefer-reduce-type-parameter': 'error',
     '@typescript-eslint/prefer-string-starts-ends-with': 'error',
     '@typescript-eslint/prefer-ts-expect-error': 'error',
-    '@typescript-eslint/promise-function-async': 'error',
     '@typescript-eslint/require-array-sort-compare': ['error', { ignoreStringArrays: true }],
     '@typescript-eslint/restrict-template-expressions': [
       'error',

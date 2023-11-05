@@ -19,7 +19,6 @@
     "@document-generator/config-typescript": "workspace:*",
     "@document-generator/superturbo": "workspace:*",
     "@pkerschbaum/pkg-management": "^1.2.0",
-    "@pkerschbaum/typescript-eslint-rules-requiring-type-info": "^1.0.0",
     "cross-env": "^7.0.3",
     "del-cli": "^5.1.0",
     "husky": "^8.0.3",

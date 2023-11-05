@@ -1,4 +1,3 @@
-// @ts-check
 const baseEslintConfig = require('@document-generator/config-eslint/eslint-ecma.cjs');
 
 module.exports = {

@@ -7,7 +7,7 @@
     "build:compile": "tsc -p ./tsconfig.project.json",
     "dev": "next dev",
     "lint": "pnpm run lint:file .",
-    "lint:file": "cross-env APPLY_HEAVY_RULES=true eslint --max-warnings 0",
+    "lint:file": "eslint --max-warnings 0",
     "lint:fix": "pnpm run lint --fix",
     "nuke": "pnpm run nuke:artifacts && del-cli --dot=true node_modules",
     "nuke:artifacts": "del-cli --dot=true dist \"*.tsbuildinfo\""
@@ -24,12 +24,14 @@
   },
   "devDependencies": {
     "@next/env": "^13.5.6",
+    "@next/eslint-plugin-next": "^14.0.1",
     "@types/react": "^18.2.31",
     "@types/react-dom": "^18.2.14",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
     "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-code-import-patterns": "^3.0.1",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
@@ -38,6 +40,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-regexp": "^2.1.1",
+    "eslint-plugin-unicorn": "^49.0.0",
     "typescript": "^5.2.2"
   }
 }
