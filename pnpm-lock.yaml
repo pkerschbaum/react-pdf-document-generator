@@ -22,167 +22,24 @@ importers:
       '@document-generator/superturbo':
         specifier: workspace:*
         version: link:platform/superturbo
+      '@next/eslint-plugin-next':
+        specifier: ^14.0.1
+        version: 14.0.1
       '@pkerschbaum/pkg-management':
         specifier: ^1.2.0
         version: 1.2.0
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^6.9.0
+        version: 6.9.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)(typescript@5.2.2)
+      '@typescript-eslint/parser':
+        specifier: ^6.9.0
+        version: 6.9.0(eslint@8.52.0)(typescript@5.2.2)
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
       del-cli:
         specifier: ^5.1.0
         version: 5.1.0
-      husky:
-        specifier: ^8.0.3
-        version: 8.0.3
-      prettier:
-        specifier: ^3.0.3
-        version: 3.0.3
-      prettier-plugin-packagejson:
-        specifier: ^2.4.6
-        version: 2.4.6(prettier@3.0.3)
-      turbo:
-        specifier: ^1.10.14
-        version: 1.10.16
-
-  packages/config:
-    devDependencies:
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^6.9.0
-        version: 6.9.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)(typescript@5.2.2)
-      '@typescript-eslint/parser':
-        specifier: ^6.9.0
-        version: 6.9.0(eslint@8.52.0)(typescript@5.2.2)
-      eslint:
-        specifier: ^8.52.0
-        version: 8.52.0
-      eslint-config-prettier:
-        specifier: ^9.0.0
-        version: 9.0.0(eslint@8.52.0)
-      eslint-plugin-code-import-patterns:
-        specifier: ^3.0.1
-        version: 3.0.1(eslint@8.52.0)(typescript@5.2.2)
-      eslint-plugin-eslint-comments:
-        specifier: ^3.2.0
-        version: 3.2.0(eslint@8.52.0)
-      eslint-plugin-import:
-        specifier: ^2.29.0
-        version: 2.29.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)
-      eslint-plugin-n:
-        specifier: ^16.2.0
-        version: 16.2.0(eslint@8.52.0)
-      eslint-plugin-only-warn:
-        specifier: ^1.1.0
-        version: 1.1.0
-      eslint-plugin-regexp:
-        specifier: ^2.1.1
-        version: 2.1.1(eslint@8.52.0)
-      eslint-plugin-unicorn:
-        specifier: ^49.0.0
-        version: 49.0.0(eslint@8.52.0)
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2(patch_hash=knstlwaiyffhnkbfqrdzesxaeu)
-      typescript-transform-paths:
-        specifier: ^3.4.6
-        version: 3.4.6(typescript@5.2.2)
-
-  packages/renderer-pdf:
-    dependencies:
-      '@document-generator/config':
-        specifier: workspace:*
-        version: link:../config
-      puppeteer:
-        specifier: ^21.4.0
-        version: 21.4.0(typescript@5.2.2)
-    devDependencies:
-      '@types/node':
-        specifier: ^20.8.7
-        version: 20.8.7
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^6.9.0
-        version: 6.9.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)(typescript@5.2.2)
-      '@typescript-eslint/parser':
-        specifier: ^6.9.0
-        version: 6.9.0(eslint@8.52.0)(typescript@5.2.2)
-      eslint:
-        specifier: ^8.52.0
-        version: 8.52.0
-      eslint-config-prettier:
-        specifier: ^9.0.0
-        version: 9.0.0(eslint@8.52.0)
-      eslint-plugin-code-import-patterns:
-        specifier: ^3.0.1
-        version: 3.0.1(eslint@8.52.0)(typescript@5.2.2)
-      eslint-plugin-eslint-comments:
-        specifier: ^3.2.0
-        version: 3.2.0(eslint@8.52.0)
-      eslint-plugin-import:
-        specifier: ^2.29.0
-        version: 2.29.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)
-      eslint-plugin-n:
-        specifier: ^16.2.0
-        version: 16.2.0(eslint@8.52.0)
-      eslint-plugin-only-warn:
-        specifier: ^1.1.0
-        version: 1.1.0
-      eslint-plugin-regexp:
-        specifier: ^2.1.1
-        version: 2.1.1(eslint@8.52.0)
-      eslint-plugin-unicorn:
-        specifier: ^49.0.0
-        version: 49.0.0(eslint@8.52.0)
-      nodemon:
-        specifier: ^3.0.1
-        version: 3.0.1
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2(patch_hash=knstlwaiyffhnkbfqrdzesxaeu)
-
-  packages/renderer-web:
-    dependencies:
-      '@document-generator/config':
-        specifier: workspace:*
-        version: link:../config
-      '@pkerschbaum/ts-utils':
-        specifier: ^0.0.1
-        version: 0.0.1
-      dayjs:
-        specifier: ^1.11.10
-        version: 1.11.10
-      next:
-        specifier: ^13.5.6
-        version: 13.5.6(react-dom@18.2.0)(react@18.2.0)
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
-      react-is:
-        specifier: ^18.2.0
-        version: 18.2.0
-      styled-components:
-        specifier: 6.1.0
-        version: 6.1.0(react-dom@18.2.0)(react@18.2.0)
-    devDependencies:
-      '@next/env':
-        specifier: ^13.5.6
-        version: 13.5.6
-      '@next/eslint-plugin-next':
-        specifier: ^14.0.1
-        version: 14.0.1
-      '@types/react':
-        specifier: ^18.2.31
-        version: 18.2.31
-      '@types/react-dom':
-        specifier: ^18.2.14
-        version: 18.2.14
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^6.9.0
-        version: 6.9.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)(typescript@5.2.2)
-      '@typescript-eslint/parser':
-        specifier: ^6.9.0
-        version: 6.9.0(eslint@8.52.0)(typescript@5.2.2)
       eslint:
         specifier: ^8.52.0
         version: 8.52.0
@@ -219,78 +76,89 @@ importers:
       eslint-plugin-unicorn:
         specifier: ^49.0.0
         version: 49.0.0(eslint@8.52.0)
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2(patch_hash=knstlwaiyffhnkbfqrdzesxaeu)
-
-  platform/config-eslint:
-    devDependencies:
-      eslint-plugin-code-import-patterns:
-        specifier: ^3.0.1
-        version: 3.0.1(typescript@5.2.2)
-      eslint-plugin-unicorn:
-        specifier: ^49.0.0
-        version: 49.0.0
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2(patch_hash=knstlwaiyffhnkbfqrdzesxaeu)
-
-  platform/config-typescript:
-    devDependencies:
-      eslint-plugin-code-import-patterns:
-        specifier: ^3.0.1
-        version: 3.0.1(typescript@5.2.2)
-      eslint-plugin-unicorn:
-        specifier: ^49.0.0
-        version: 49.0.0
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2(patch_hash=knstlwaiyffhnkbfqrdzesxaeu)
-
-  platform/superturbo:
-    devDependencies:
-      '@types/node':
-        specifier: ^18
-        version: 18.18.7
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^6.9.0
-        version: 6.9.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)(typescript@5.2.2)
-      '@typescript-eslint/parser':
-        specifier: ^6.9.0
-        version: 6.9.0(eslint@8.52.0)(typescript@5.2.2)
-      eslint:
-        specifier: ^8.52.0
-        version: 8.52.0
-      eslint-config-prettier:
-        specifier: ^9.0.0
-        version: 9.0.0(eslint@8.52.0)
-      eslint-plugin-code-import-patterns:
-        specifier: ^3.0.1
-        version: 3.0.1(eslint@8.52.0)(typescript@5.2.2)
-      eslint-plugin-eslint-comments:
-        specifier: ^3.2.0
-        version: 3.2.0(eslint@8.52.0)
-      eslint-plugin-import:
-        specifier: ^2.29.0
-        version: 2.29.0(@typescript-eslint/parser@6.9.0)(eslint@8.52.0)
-      eslint-plugin-n:
-        specifier: ^16.2.0
-        version: 16.2.0(eslint@8.52.0)
-      eslint-plugin-only-warn:
-        specifier: ^1.1.0
-        version: 1.1.0
-      eslint-plugin-regexp:
-        specifier: ^2.1.1
-        version: 2.1.1(eslint@8.52.0)
-      eslint-plugin-unicorn:
-        specifier: ^49.0.0
-        version: 49.0.0(eslint@8.52.0)
+      husky:
+        specifier: ^8.0.3
+        version: 8.0.3
+      prettier:
+        specifier: ^3.0.3
+        version: 3.0.3
+      prettier-plugin-packagejson:
+        specifier: ^2.4.6
+        version: 2.4.6(prettier@3.0.3)
+      turbo:
+        specifier: ^1.10.14
+        version: 1.10.16
       typescript:
         specifier: ^5.2.2
         version: 5.2.2(patch_hash=knstlwaiyffhnkbfqrdzesxaeu)
       typescript-transform-paths:
         specifier: ^3.4.6
         version: 3.4.6(typescript@5.2.2)
+
+  packages/config: {}
+
+  packages/renderer-pdf:
+    dependencies:
+      '@document-generator/config':
+        specifier: workspace:*
+        version: link:../config
+      puppeteer:
+        specifier: ^21.4.0
+        version: 21.4.0(typescript@5.2.2)
+    devDependencies:
+      '@types/node':
+        specifier: ^20.8.7
+        version: 20.8.7
+      nodemon:
+        specifier: ^3.0.1
+        version: 3.0.1
+
+  packages/renderer-web:
+    dependencies:
+      '@document-generator/config':
+        specifier: workspace:*
+        version: link:../config
+      '@pkerschbaum/ts-utils':
+        specifier: ^0.0.1
+        version: 0.0.1
+      dayjs:
+        specifier: ^1.11.10
+        version: 1.11.10
+      next:
+        specifier: ^13.5.6
+        version: 13.5.6(react-dom@18.2.0)(react@18.2.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+      react-is:
+        specifier: ^18.2.0
+        version: 18.2.0
+      styled-components:
+        specifier: 6.1.0
+        version: 6.1.0(react-dom@18.2.0)(react@18.2.0)
+    devDependencies:
+      '@next/env':
+        specifier: ^13.5.6
+        version: 13.5.6
+      '@types/react':
+        specifier: ^18.2.31
+        version: 18.2.31
+      '@types/react-dom':
+        specifier: ^18.2.14
+        version: 18.2.14
+
+  platform/config-eslint: {}
+
+  platform/config-typescript: {}
+
+  platform/superturbo:
+    devDependencies:
+      '@types/node':
+        specifier: ^18
+        version: 18.18.7
 
 packages:
 
@@ -346,15 +214,6 @@ packages:
   /@emotion/unitless@0.8.1:
     resolution: {integrity: sha512-KOEGMu6dmJZtpadb476IsZBclKvILjopjUii3V+7MnXIQCYh8W3NgNcgwo21n9LXZX6EDIKvqfjYxXebDwxKmQ==}
     dev: false
-
-  /@eslint-community/eslint-utils@4.4.0:
-    resolution: {integrity: sha512-1/sA4dwrzBAyeUoQ6oxahHKmrZvsnLCg4RfxW3ZFGGmQkSNQPFNLV9CUEFQP1x9EYXHTo5p6xdhZM1Ne9p/AfA==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^6.0.0 || ^7.0.0 || >=8.0.0
-    dependencies:
-      eslint-visitor-keys: 3.4.3
-    dev: true
 
   /@eslint-community/eslint-utils@4.4.0(eslint@8.52.0):
     resolution: {integrity: sha512-1/sA4dwrzBAyeUoQ6oxahHKmrZvsnLCg4RfxW3ZFGGmQkSNQPFNLV9CUEFQP1x9EYXHTo5p6xdhZM1Ne9p/AfA==}
@@ -1076,18 +935,6 @@ packages:
       - typescript
     dev: true
 
-  /@typescript-eslint/experimental-utils@5.62.0(typescript@5.2.2):
-    resolution: {integrity: sha512-RTXpeB3eMkpoclG3ZHft6vG/Z30azNHuqY6wKPBHlVMZFuEvrtlEDe8gMqDb+SO+9hjC/pLekeSCryf9vMZlCw==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-    dependencies:
-      '@typescript-eslint/utils': 5.62.0(typescript@5.2.2)
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
-    dev: true
-
   /@typescript-eslint/parser@6.9.0(eslint@8.52.0)(typescript@5.2.2):
     resolution: {integrity: sha512-GZmjMh4AJ/5gaH4XF2eXA8tMnHWP+Pm1mjQR2QN4Iz+j/zO04b9TOvJYOX2sCNIQHtRStKTxRY1FX7LhpJT4Gw==}
     engines: {node: ^16.0.0 || >=18.0.0}
@@ -1210,25 +1057,6 @@ packages:
       '@typescript-eslint/types': 5.62.0
       '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.2.2)
       eslint: 8.52.0
-      eslint-scope: 5.1.1
-      semver: 7.5.4
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
-    dev: true
-
-  /@typescript-eslint/utils@5.62.0(typescript@5.2.2):
-    resolution: {integrity: sha512-n8oxjeb5aIbPFEtmQxQYOLI0i9n5ySBEY/ZEHHZqKQSFnxio1rv6dthascc9dLuwrL0RC5mPCxB7vnAVGAYWAQ==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    peerDependencies:
-      eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-    dependencies:
-      '@eslint-community/eslint-utils': 4.4.0
-      '@types/json-schema': 7.0.14
-      '@types/semver': 7.5.4
-      '@typescript-eslint/scope-manager': 5.62.0
-      '@typescript-eslint/types': 5.62.0
-      '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.2.2)
       eslint-scope: 5.1.1
       semver: 7.5.4
     transitivePeerDependencies:
@@ -2274,16 +2102,6 @@ packages:
       - typescript
     dev: true
 
-  /eslint-plugin-code-import-patterns@3.0.1(typescript@5.2.2):
-    resolution: {integrity: sha512-nK5N/UsjGtGmD8KY+z5XxVgliDjxGV0zCbnn3+y2G5RqL8Nrp7rrCG+US8sfov7Wua2YGs2/m8sG0sNKQePGYA==}
-    dependencies:
-      '@typescript-eslint/experimental-utils': 5.62.0(typescript@5.2.2)
-    transitivePeerDependencies:
-      - eslint
-      - supports-color
-      - typescript
-    dev: true
-
   /eslint-plugin-es-x@7.2.0(eslint@8.52.0):
     resolution: {integrity: sha512-9dvv5CcvNjSJPqnS5uZkqb3xmbeqRLnvXKK7iI5+oK/yTusyc46zbBZKENGsOfojm/mKfszyZb+wNqNPAPeGXA==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -2437,28 +2255,6 @@ packages:
       refa: 0.12.1
       regexp-ast-analysis: 0.7.1
       scslre: 0.3.0
-    dev: true
-
-  /eslint-plugin-unicorn@49.0.0:
-    resolution: {integrity: sha512-0fHEa/8Pih5cmzFW5L7xMEfUTvI9WKeQtjmKpTUmY+BiFCDxkxrTdnURJOHKykhtwIeyYsxnecbGvDCml++z4Q==}
-    engines: {node: '>=16'}
-    peerDependencies:
-      eslint: '>=8.52.0'
-    dependencies:
-      '@babel/helper-validator-identifier': 7.22.20
-      '@eslint-community/eslint-utils': 4.4.0
-      ci-info: 3.9.0
-      clean-regexp: 1.0.0
-      esquery: 1.5.0
-      indent-string: 4.0.0
-      is-builtin-module: 3.2.1
-      jsesc: 3.0.2
-      pluralize: 8.0.0
-      read-pkg-up: 7.0.1
-      regexp-tree: 0.1.27
-      regjsparser: 0.10.0
-      semver: 7.5.4
-      strip-indent: 3.0.0
     dev: true
 
   /eslint-plugin-unicorn@49.0.0(eslint@8.52.0):
