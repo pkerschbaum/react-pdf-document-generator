@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "superturbo build",
-    "create-pnpm-patch-via-ts-patch": "pnpm --package=\"@pkerschbaum/pkg-management@1.1.1\" dlx create-pnpm-patch-via-ts-patch --typescript-version=5.2.2",
+    "create-pnpm-patch-via-ts-patch": "pnpm --package=\"@pkerschbaum/pkg-management@1.1.1\" dlx create-pnpm-patch-via-ts-patch --typescript-version=5.3.3",
     "dev": "pnpm run --parallel dev",
     "format": "prettier --write --ignore-unknown .",
     "lint": "superturbo lint",
@@ -18,30 +18,30 @@
     "@document-generator/config-eslint": "workspace:*",
     "@document-generator/config-typescript": "workspace:*",
     "@document-generator/superturbo": "workspace:*",
-    "@next/eslint-plugin-next": "^14.0.1",
+    "@next/eslint-plugin-next": "^14.0.4",
     "@pkerschbaum/pkg-management": "^1.2.0",
-    "@typescript-eslint/eslint-plugin": "^6.9.0",
-    "@typescript-eslint/parser": "^6.9.0",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
     "cross-env": "^7.0.3",
     "del-cli": "^5.1.0",
-    "eslint": "^8.52.0",
-    "eslint-config-prettier": "^9.0.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-code-import-patterns": "^3.0.1",
     "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-jsdoc": "^46.9.0",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-n": "^16.2.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsdoc": "^48.0.2",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-regexp": "^2.1.1",
-    "eslint-plugin-unicorn": "^49.0.0",
+    "eslint-plugin-regexp": "^2.2.0",
+    "eslint-plugin-unicorn": "^50.0.1",
     "husky": "^8.0.3",
     "prettier": "^3.0.3",
     "prettier-plugin-packagejson": "^2.4.6",
     "turbo": "^1.10.14",
-    "typescript": "^5.2.2",
+    "typescript": "^5.3.3",
     "typescript-transform-paths": "^3.4.6"
   },
   "packageManager": "pnpm@8.9.2",
@@ -51,7 +51,7 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "typescript@5.2.2": "patches/typescript@5.2.2.patch"
+      "typescript@5.3.3": "patches/typescript@5.3.3.patch"
     }
   }
 }
