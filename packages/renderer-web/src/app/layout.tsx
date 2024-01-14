@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Viewport } from 'next';
 import type React from 'react';
 
 import { GlobalStyles, ResetStyles } from '#pkg/app/global-styles';
@@ -29,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps) {
   );
 }
 
-export const metadata: Metadata = {
-  viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
