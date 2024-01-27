@@ -17,6 +17,7 @@
       "inputs": [
         "../../platform/config-typescript/tsconfig.json",
         "../../platform/config-eslint/eslint-ecma.cjs",
+        "../../platform/config-eslint/eslint-react.cjs",
         "../../platform/config-eslint/eslint-next.cjs",
         "src/**",
         ".eslintrc.cjs",
@@ -30,6 +31,7 @@
       "inputs": [
         "../../platform/config-typescript/tsconfig.json",
         "../../platform/config-eslint/eslint-ecma.cjs",
+        "../../platform/config-eslint/eslint-react.cjs",
         "../../platform/config-eslint/eslint-next.cjs",
         "src/**",
         ".eslintrc.cjs",
