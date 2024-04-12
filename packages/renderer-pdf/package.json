@@ -11,6 +11,7 @@
     "build:compile": "tsc -p ./tsconfig.project.json",
     "create:pdf": "node ./dist/index.js",
     "dev": "tsc -p ./tsconfig.project.json -w --preserveWatchOutput",
+    "postinstall": "puppeteer browsers install chrome",
     "lint": "pnpm run lint:file .",
     "lint:file": "eslint --max-warnings 0",
     "lint:fix": "pnpm run lint --fix",
