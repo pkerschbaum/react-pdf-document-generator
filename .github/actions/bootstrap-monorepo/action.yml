@@ -1,0 +1,16 @@
+name: 'bootstrap-monorepo'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install pnpm
+      uses: pnpm/action-setup@v3.0.0
+    - name: Install Node.js
+      uses: actions/setup-node@v4.0.2
+      with:
+        node-version-file: '.nvmrc'
+        cache: 'pnpm'
+    - name: Install dependencies
+      shell: bash
+      run: |
+        pnpm install --frozen-lockfile
