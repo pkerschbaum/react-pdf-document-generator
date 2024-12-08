@@ -4,6 +4,7 @@
   "scripts": {
     "build": "superturbo build",
     "create-pnpm-patch-via-ts-patch": "pnpm --package=\"@pkerschbaum/pkg-management@1.1.1\" dlx create-pnpm-patch-via-ts-patch --typescript-version=5.3.3",
+    "create:pdf": "pnpm --filter=renderer-pdf run create:pdf",
     "dev": "pnpm run --parallel dev",
     "format": "prettier --write --ignore-unknown .",
     "lint": "superturbo lint",
