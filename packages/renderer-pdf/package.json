@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@document-generator/config": "workspace:*",
-    "puppeteer": "^21.7.0"
+    "puppeteer": "^24.9.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.0",
